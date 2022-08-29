@@ -100,7 +100,9 @@ export default {};
   font-weight: 500;
   transition: color 0.3s ease-in-out;
 }
-
+.navbar a:active{
+  color: brown;
+}
 .navbar a:hover {
   color: #b5a5a5;
 }

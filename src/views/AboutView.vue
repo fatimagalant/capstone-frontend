@@ -37,11 +37,11 @@
         <p class="paragraph text-muted">Sincerely, The Aromary</p>
         <div class="container">
           <div class="row">
-            <i class="fa-brands fa-instagram"></i>
+            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
 
-            <i class="fa-brands fa-twitter"></i>
+           <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
 
-            <i class="fa-brands fa-pinterest-p"></i>
+            <a href="https://za.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 #about {
   padding-top: 100px;
@@ -80,5 +80,12 @@ export default {
 }
 i {
   font-size: 2rem;
+}
+a:active{
+  color: #b5a5a5;
+}
+.col-md-6{
+
+  padding-top: 60px;
 }
 </style>

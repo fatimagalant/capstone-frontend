@@ -33,7 +33,7 @@ export default createStore({
   },
   actions: {
     login: async (context, payload) => {
-      const { email, userpassword } = payload;
+      const { email, password } = payload;
 
       fetch("https://the-aromary-capstone.herokuapp.com/users/login", {
         method: "POST",
