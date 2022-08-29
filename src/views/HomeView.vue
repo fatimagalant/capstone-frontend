@@ -118,6 +118,7 @@ img {
   height: 400px;
 }
 .heading {
+  font-size: 4rem;
   font-weight: 400;
 }
 .carousel-control-next-icon {
