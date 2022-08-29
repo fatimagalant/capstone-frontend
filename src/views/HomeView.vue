@@ -1,18 +1,139 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section id="home" class="bg-light text-dark">
+    <NavBar />
+    <div
+      id="carouselExampleControls"
+      class="carousel slide p-5"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://i.postimg.cc/NMHGDpGN/luma-candles-K1-Xi-R-mfpk-unsplash.jpg"
+            class="img-fluid"
+            alt="candles"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://i.postimg.cc/26Nv4Hnw/pexels-cup-of-couple-7302758.jpg"
+            class="img-fluid"
+            alt="candles"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://i.postimg.cc/rs6hRCpX/pexels-ekaterina-bolovtsova-6311975.jpg"
+            class="img-fluid"
+            alt="candles"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span
+          class="carousel-control-next-icon text-dark"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <h1 class="heading">Welcome to The Aromary</h1>
+    <p class="text-muted">click here to browse some of our products</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            class="p-5"
+            src="https://i.postimg.cc/D0rDyb5f/tyler-nix-tko-ZIdf-FHOE-unsplash-1.jpg"
+            alt="candle"
+          />
+        </div>
+        <div class="col-md-4">
+          <img
+            class="p-5"
+            src="https://i.postimg.cc/YqcG5LJG/luma-candles-B0-G8xzw-TVWc-unsplash.jpg"
+            alt="candle"
+          />
+        </div>
+        <div class="col-md-4">
+          <img
+            class="p-5"
+            src="https://i.postimg.cc/nhGDYVSs/svitlana-l-UZiv2-LXs-Gw-unsplash.jpg"
+            alt="candle"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import NavBar from "../components/NavBar.vue";
 
 export default {
-  name: 'HomeView',
   components: {
-    HelloWorld
+    NavBar,
+  },
+};
+</script>
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
+#home {
+  font-family: "Aboreto", cursive;
+}
+.img-fluid {
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 80%;
+  height: 500px;
+  padding-top: 75px;
+}
+@media screen and (max-width: 800px) {
+  .img-fluid {
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
   }
 }
-</script>
+img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 100%;
+  height: 400px;
+}
+.heading {
+  font-weight: 400;
+}
+.carousel-control-next-icon {
+  filter: invert(1);
+  padding-top: 75px;
+}
+.carousel-control-prev-icon {
+  filter: invert(1);
+  padding-top: 75px;
+}
+.carousel-control-next {
+  right: 0;
+  padding-top: 65px;
+}
+.carousel-control-prev {
+  left: 0;
+  padding-top: 65px;
+}
+</style>
