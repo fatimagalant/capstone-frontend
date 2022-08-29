@@ -52,7 +52,7 @@
       </button>
     </div>
     <h1 class="heading">Welcome to The Aromary</h1>
-    <p class="text-muted">click here to browse some of our products</p>
+    <p class="text-muted">click <a href="/products">here</a> to browse some of our products</p>
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -135,5 +135,10 @@ img {
 .carousel-control-prev {
   left: 0;
   padding-top: 65px;
+}
+a{
+  color: black;
+  text-decoration-line: none;
+  font-weight: 500;
 }
 </style>
