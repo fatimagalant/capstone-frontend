@@ -107,6 +107,11 @@ export default {};
   color: #b5a5a5;
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    /* opacity: 0.95; */
+  }
+
   .navbar-container input[type="checkbox"],
   .navbar-container .hamburger-lines {
     display: block;
@@ -243,6 +248,7 @@ export default {};
   .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
     transform: rotate(-45deg);
   }
+}
 
 @media (max-width: 500px) {
   .navbar-container input[type="checkbox"]:checked ~ .logo {
