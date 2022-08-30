@@ -107,11 +107,6 @@ export default {};
   color: #b5a5a5;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    /* opacity: 0.95; */
-  }
-
   .navbar-container input[type="checkbox"],
   .navbar-container .hamburger-lines {
     display: block;
