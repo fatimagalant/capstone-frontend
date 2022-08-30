@@ -35,29 +35,21 @@
           contact us.
         </p>
         <p class="paragraph text-muted">Sincerely, The Aromary</p>
-        <div class="container">
-          <div class="row">
-            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-
-           <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-
-            <a href="https://za.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
-          </div>
-        </div>
+        <hr />
+        <p class="sales">Browse our products on <a href="/sales">sale</a></p>
       </div>
     </div>
+    <Footer />
   </section>
 </template>
 <script>
-import NavBar from "../components/NavBar.vue";
-export default {
-  components: {
-    NavBar,
-  },
-};
+export default {};
 </script>
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
+::-webkit-scrollbar {
+  display: none;
+}
 #about {
   padding-top: 100px;
   font-family: "Aboreto", cursive;
@@ -81,11 +73,18 @@ export default {
 i {
   font-size: 2rem;
 }
-a:active{
+a:active {
   color: #b5a5a5;
 }
-.col-md-6{
-
-  padding-top: 60px;
+.sales {
+  text-decoration-line: none !important;
+  color: black;
+}
+.col-md-6 {
+  padding-top: 20px;
+}
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 </style>

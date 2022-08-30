@@ -73,6 +73,9 @@ export default {};
   }
 }
 
+.navbar a.router-link-active {
+  color:khaki;
+}
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -100,7 +103,7 @@ export default {};
   font-weight: 500;
   transition: color 0.3s ease-in-out;
 }
-.navbar a:active{
+.navbar a:active {
   color: brown;
 }
 .navbar a:hover {
@@ -108,10 +111,6 @@ export default {};
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    /* opacity: 0.95; */
-  }
-
   .navbar-container input[type="checkbox"],
   .navbar-container .hamburger-lines {
     display: block;

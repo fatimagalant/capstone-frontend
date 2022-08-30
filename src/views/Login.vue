@@ -10,12 +10,16 @@
           </div>
           <h1 v-if="user" id="login-header">Welcome</h1>
           <h1 v-else id="login-header">Login</h1>
+          <div class="card">
+            <img
+              class="img-fluid"
+              src="https://i.postimg.cc/m2q63Nh5/user.png"
+              alt="user-icon"
+            />
+          </div>
           <div id="login-margin">
             <h1 v-if="user" id="login-header">
-              <a href="/products">Check out our cars</a>
-            </h1>
-            <h1 v-if="user" id="login-header">
-              <a href="/admin">Check out our admin page</a>
+              <a href="/products">Check out our candles</a>
             </h1>
             <p id="login-subheader" class="py-2" v-if="user">
               {{ user.fullname }}
@@ -23,7 +27,6 @@
             <p id="login-subheader" class="py-2" v-else>
               our vast collection awaits...
             </p>
-
             <div class="col-lg-12 login-form">
               <div class="col-lg-12 login-form">
                 <form @submit.prevent="login" id="form-container">
@@ -81,16 +84,12 @@
         </div>
       </div>
     </div>
+    <Footer />
   </section>
-  <Footer />
 </template>
 <script>
-
-import NavBar from "../components/NavBar.vue";
 export default {
-  components: {
-    NavBar,
-  },
+  components: {},
   computed: {
     user() {
       return this.$store.state.user;
@@ -99,27 +98,35 @@ export default {
   data() {
     return {
       email: "",
-      userpassword: "",
+      password: "",
     };
   },
   methods: {
     login() {
       this.$store.dispatch("login", {
         email: this.email,
-        userpassword: this.userpassword,
+        password: this.password,
       });
     },
   },
-  // mounted() {
-  //   console.log(this.user);
-  // },
+  mounted() {
+    console.log(this.user);
+  },
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
 #Login {
-  background-color: black;
+  /* background-color: rgb(255, 255, 255); */
+  background-image: url("https://i.postimg.cc/1zVdgXrF/joshua-sukoff-i2-E4d-K8j-So-unsplash.jpg");
   min-height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: contain;
   overflow-x: hidden;
+  font-family: "Aboreto", cursive;
 }
 .login-box {
   justify-content: center;
@@ -127,11 +134,31 @@ export default {
   flex-direction: column;
   align-content: center;
   display: flex;
-  margin-top: 10rem;
+  margin-top: 14rem;
   height: auto;
-  background: #020202;
+  background: #ffffff;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.card {
+  width: 100px;
+  height: 100px;
+  border: none !important;
+}
+img {
+  opacity: 0.4;
+}
+#login-header {
+  font-family: "Aboreto", cursive;
+}
+a {
+  font-family: "Aboreto", cursive;
+}
+p {
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  margin-bottom: 80px;
 }
 .login-key {
   height: 100px;
@@ -148,47 +175,51 @@ export default {
   letter-spacing: 2px;
   margin-top: 15px;
   font-weight: bold;
-  color: #ecf0f5;
+  color: #000000;
+  font-family: "Aboreto", cursive;
 }
 .login-form {
   margin-top: 25px;
   text-align: left;
 }
 input[type="text"] {
-  background-color: #000000;
+  background-color: #ffffff;
   border: none;
-  border-bottom: 2px solid rgb(111, 17, 218);
+  border-bottom: 2px solid #b5a5a5;
   border-top: 0px;
   border-radius: 0px;
   font-weight: bold;
   outline: 0;
   margin-bottom: 20px;
   padding-left: 0px;
-  color: #ecf0f5;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
 }
 input[type="email"] {
-  background-color: #000000;
+  background-color: #ffffff;
   border: none;
-  border-bottom: 2px solid rgb(111, 17, 218);
+  border-bottom: 2px solid #b5a5a5;
   border-top: 0px;
   border-radius: 0px;
   font-weight: bold;
   outline: 0;
   margin-bottom: 20px;
   padding-left: 0px;
-  color: #ecf0f5;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
 }
 input[type="password"] {
-  background-color: #1a2226;
+  background-color: #ffffff;
   border: none;
-  border-bottom: 2px solid rgb(111, 17, 218);
+  border-bottom: 2px solid#b5a5a5;
   border-top: 0px;
   border-radius: 0px;
   font-weight: bold;
   outline: 0;
   padding-left: 0px;
   margin-bottom: 20px;
-  color: #ecf0f5;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
 }
 .form-group {
   margin-bottom: 40px;
@@ -198,10 +229,10 @@ input[type="password"] {
   border-color: inherit;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-bottom: 2px solid rgb(111, 17, 218);
+  border-bottom: 2px solid #b5a5a5;
   outline: 0;
   background-color: #1a2226;
-  color: #ecf0f5;
+  color: #ffffff;
 }
 input:focus {
   outline: none;
@@ -215,17 +246,18 @@ label {
   color: #6c6c6c;
   font-weight: bold;
   letter-spacing: 1px;
+  font-family: "Aboreto", cursive;
 }
 .btn-outline-primary {
-  border-color: #6a0fe0;
-  color: #ffff;
+  border-color: #b5a5a5;
+  color: rgb(0, 0, 0);
   border-radius: 0px;
   font-weight: bold;
   letter-spacing: 1px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .btn-outline-primary:hover {
-  background-color: #6a0fe0;
+  background-color: #b5a5a5;
   right: 0px;
 }
 .login-btm {
@@ -235,11 +267,13 @@ label {
   padding-right: 0px;
   text-align: right;
   margin-bottom: 25px;
+  font-family: "Aboreto", cursive;
 }
 .login-text {
   text-align: left;
   padding-left: 0px;
-  color: #a2a4a4;
+  color: #000000;
+  font-family: "Aboreto", cursive;
 }
 .loginbttm {
   padding: 0px;

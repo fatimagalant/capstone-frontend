@@ -52,49 +52,63 @@
       </button>
     </div>
     <h1 class="heading">Welcome to The Aromary</h1>
-    <p class="text-muted">click <a href="/products">here</a> to browse some of our products</p>
+    <p class="text-muted">
+      click <a href="/products">here</a> to browse some of our products
+    </p>
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <img
-            class="p-5"
-            src="https://i.postimg.cc/D0rDyb5f/tyler-nix-tko-ZIdf-FHOE-unsplash-1.jpg"
-            alt="candle"
-          />
+        <div id="overlay" class="col-md-4">
+          <a href="/products">
+            <img
+              class="p-5"
+              src="https://i.postimg.cc/D0rDyb5f/tyler-nix-tko-ZIdf-FHOE-unsplash-1.jpg"
+              alt="candle"
+          /></a>
         </div>
-        <div class="col-md-4">
-          <img
-            class="p-5"
-            src="https://i.postimg.cc/YqcG5LJG/luma-candles-B0-G8xzw-TVWc-unsplash.jpg"
-            alt="candle"
-          />
+        <div id="overlay" class="col-md-4">
+          <a href="/products">
+            <img
+              class="p-5"
+              src="https://i.postimg.cc/YqcG5LJG/luma-candles-B0-G8xzw-TVWc-unsplash.jpg"
+              alt="candle"
+            />
+          </a>
         </div>
-        <div class="col-md-4">
-          <img
-            class="p-5"
-            src="https://i.postimg.cc/nhGDYVSs/svitlana-l-UZiv2-LXs-Gw-unsplash.jpg"
-            alt="candle"
-          />
+        <div id="overlay" class="col-md-4">
+          <a href="/products">
+            <img
+              class="p-5"
+              src="https://i.postimg.cc/nhGDYVSs/svitlana-l-UZiv2-LXs-Gw-unsplash.jpg"
+              alt="candle"
+            />
+          </a>
         </div>
       </div>
     </div>
+    <hr />
+    <h4 class="featured">Featured</h4>
+    <Footer />
   </section>
 </template>
 
 <script>
 // @ is an alias to /src
-import NavBar from "../components/NavBar.vue";
 
-export default {
-  components: {
-    NavBar,
-  },
-};
+export default {};
 </script>
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
+::-webkit-scrollbar {
+  display: none;
+}
 #home {
   font-family: "Aboreto", cursive;
+  overflow-x: hidden;
+  background-color: khaki;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .img-fluid {
   aspect-ratio: 1;
@@ -111,6 +125,15 @@ export default {
     height: 400px;
   }
 }
+#overlay:hover {
+  opacity: 0.5;
+  transition: all 0.4s ease;
+  top: 80%;
+}
+.featured {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
 img {
   aspect-ratio: 1;
   object-fit: cover;
@@ -119,7 +142,7 @@ img {
 }
 .heading {
   font-size: 4rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 .carousel-control-next-icon {
   filter: invert(1);
@@ -137,9 +160,13 @@ img {
   left: 0;
   padding-top: 65px;
 }
-a{
+a {
   color: black;
   text-decoration-line: none;
   font-weight: 500;
+}
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: large;
 }
 </style>
