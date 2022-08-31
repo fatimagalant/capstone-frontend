@@ -109,7 +109,9 @@ export default {};
 .navbar a:hover {
   color: #b5a5a5;
 }
-
+.nav-links{
+  padding-right: 150px;
+}
 @media (max-width: 768px) {
   .navbar-container input[type="checkbox"],
   .navbar-container .hamburger-lines {
@@ -216,6 +218,7 @@ export default {};
     nav.nav-links {
       display: flex;
       flex-direction: column;
+    
     }
   }
   .navbar .menu-items li {

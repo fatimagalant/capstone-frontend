@@ -39,6 +39,8 @@
         <p class="sales">Browse our products on <a href="/sales">sale</a></p>
       </div>
     </div>
+    <section id="testimonials">
+    </section>
     <Footer />
   </section>
 </template>
@@ -64,6 +66,9 @@ export default {};
   padding-top: 10px;
   font-weight: 500;
   padding-left: 10px;
+}
+hr{
+  color: goldenrod;
 }
 .text-muted {
   font-size: 1.5rem;

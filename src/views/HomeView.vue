@@ -63,7 +63,12 @@
               class="p-5"
               src="https://i.postimg.cc/D0rDyb5f/tyler-nix-tko-ZIdf-FHOE-unsplash-1.jpg"
               alt="candle"
-          /></a>
+            />
+            <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">SYEV</h3>
+              <p class="content-text">Heaven Scent</p>
+            </div>
+          </a>
         </div>
         <div id="overlay" class="col-md-4">
           <a href="/products">
@@ -72,6 +77,10 @@
               src="https://i.postimg.cc/YqcG5LJG/luma-candles-B0-G8xzw-TVWc-unsplash.jpg"
               alt="candle"
             />
+            <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">Luma</h3>
+              <p class="content-text">Capella</p>
+            </div>
           </a>
         </div>
         <div id="overlay" class="col-md-4">
@@ -82,6 +91,10 @@
               alt="candle"
             />
           </a>
+          <div class="content-details fadeIn-bottom">
+            <h3 class="content-title">BERGAMOT</h3>
+            <p class="content-text">Scented Candle</p>
+          </div>
         </div>
       </div>
     </div>
@@ -125,8 +138,10 @@ export default {};
     height: 400px;
   }
 }
+
 #overlay:hover {
   opacity: 0.5;
+  color: rgba(63, 63, 63, 0.61);
   transition: all 0.4s ease;
   top: 80%;
 }

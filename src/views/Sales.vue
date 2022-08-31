@@ -16,5 +16,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 #sales {
   font-family: "Aboreto", cursive;
-}
+  min-height: 100vh;
+  }
 </style>
