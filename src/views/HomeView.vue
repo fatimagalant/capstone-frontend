@@ -52,9 +52,11 @@
       </button>
     </div>
     <h1 class="heading">Welcome to The Aromary</h1>
+    <hr />
     <p class="text-muted">
       click <a href="/products">here</a> to browse some of our products
     </p>
+    <hr />
     <div class="container">
       <div class="row">
         <div id="overlay" class="col-md-4">
@@ -138,7 +140,9 @@ export default {};
     height: 400px;
   }
 }
-
+hr{
+  color: khaki;
+}
 #overlay:hover {
   opacity: 0.5;
   color: rgba(63, 63, 63, 0.61);

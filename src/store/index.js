@@ -41,6 +41,7 @@ export default createStore({
       state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
     },
   },
+ 
   // Actions are for ASYNC / Fetch calls
   actions: {
     login: async (context, payload) => {

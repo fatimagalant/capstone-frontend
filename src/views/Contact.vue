@@ -1,10 +1,10 @@
 <template>
-  <section id="contact bg-light text-dark">
+  <section id="contact">
     <NavBar />
     <form action="https://formspree.io/f/mvoygyag" method="POST">
       <label>
         Your name:
-        <input type="text" name="name" placeholder="your name"/>
+        <input type="text" name="name" placeholder="your name" />
       </label>
       <label>
         Your email:
@@ -17,7 +17,6 @@
       <!-- your other form fields go here -->
       <button type="submit">Send</button>
     </form>
-    <Footer />
   </section>
 </template>
 
@@ -28,8 +27,10 @@ export default {};
 <style scoped>
 #contact {
   min-height: 100vh;
-}
-::-webkit-scrollbar {
-  display: none;
+  background-image: url("https://i.postimg.cc/pdgRsSBk/5586989.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

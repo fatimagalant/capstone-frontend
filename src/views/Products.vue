@@ -1,6 +1,6 @@
 <template>
   <section id="products">
-    <NavBar />
+    <h1 class="padding">Check out our Products</h1>
     <div v-if="products"></div>
     <div class="row p-5">
       <div
@@ -9,27 +9,29 @@
         class="product col-md-3 p-5"
       >
         <div class="row">
-          <!-- <div class="col-md-4"> -->
-          <!-- <router-link
-          id="product-link"
-          :to="{ name: 'description', params: { id: product.id } }"
-        > -->
           <div class="card">
+            <!-- <div class="col-md-4"> -->
             <img class="img-fluid" v-bind:src="product.image" alt="" />
             <hr />
             <div class="product-info">
               <h4>
                 <strong> {{ product.name }} </strong>
+                <p class="text-muted">{{ product.category }}</p>
               </h4>
-              <p class="poppins">R{{ product.price }}</p>
-              <img
-                class="cart-img"
-                src="https://i.postimg.cc/mgRNLpx1/shopping-cart-empty-side-view.png"
-                alt=""
-              />
+              <p class="poppins">R {{ product.price }}</p>
+              <router-link
+                id="product-link"
+                :to="{ name: 'productinfo', params: { id: product.product_id } }"
+              >
+                <button id="button">View Product</button>
+              </router-link>
             </div>
+            <img
+              class="cart-img" @click="addToCart()"
+              src="https://i.postimg.cc/mgRNLpx1/shopping-cart-empty-side-view.png"
+              alt=""
+            />
           </div>
-            <!-- </router-link> -->
         </div>
       </div>
     </div>
@@ -46,6 +48,22 @@ export default {
       return this.$store.state.products;
     },
   },
+  methods: {
+    addToCart(item) {
+      this.$store.commit("updateCart", item);
+    },
+    addToCart(item) {
+      this.$store.commit("updateCart", item);
+    },
+  },
+  filteredProducts() {
+    return this.$store.state.products?.filter((product) => {
+      let isMatch = true;
+      if (!product.category?.toLowerCase().includes(this.search.toLowerCase()))
+        isMatch = false;
+      return isMatch;
+    });
+  },
 };
 </script>
 <style scoped>
@@ -53,16 +71,20 @@ export default {
 #products {
   font-family: "Aboreto", cursive;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .card {
-  width: 400px;
-  height: 520px;
+  /* width: 400px;
+  height: 520px; */
   border-radius: 0 !important;
+  box-shadow: 1px 1px 4px;
+  background-color: rgb(255, 254, 238);
 }
 @media screen and (max-width: 600px) {
   .card {
     width: 500px;
     border-radius: 0 !important;
+    box-shadow: 2px 2px 8px;
   }
 }
 .img-fluid {
@@ -71,6 +93,23 @@ export default {
   height: 300px;
   object-fit: contain;
   aspect-ratio: 1;
+} 
+#button{
+  background-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+font-size: smaller;
+border: none;
+padding: 5px;
+}
+.padding{
+padding-top: 150px;
+}
+#button:hover{
+  background-color: khaki;
+  color: rgb(0, 0, 0);
+  font-family: "Poppins", sans-serif;
+font-size: smaller;
 }
 .cart {
   padding-bottom: 3px;
@@ -79,11 +118,27 @@ export default {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
+.text-muted {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  padding-top: 7px;
+}
 .cart-img {
   width: 25px;
   height: 25px;
   aspect-ratio: 1;
   object-fit: contain;
   margin-bottom: 10px;
+  display: flex;
+  justify-items: center;
 }
+#product-link {
+  text-decoration-line: none;
+  color: black;
+}
+#product-link:hover {
+  text-decoration-line: none;
+  color: khaki;
+}
+
 </style>

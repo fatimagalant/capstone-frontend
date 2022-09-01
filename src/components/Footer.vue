@@ -68,6 +68,9 @@ a:active {
   flex-direction: row;
   justify-content: space-evenly;
 }
+i{
+  font-size: large;
+}
 ul {
   font-size: small;
   list-style: none;

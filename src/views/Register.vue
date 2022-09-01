@@ -115,7 +115,7 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
 #register {
-  background-image: url("https://i.postimg.cc/1zVdgXrF/joshua-sukoff-i2-E4d-K8j-So-unsplash.jpg");
+  background-image: url("https://i.postimg.cc/W48XFfw9/5208116.jpg");
   min-height: 100vh;
   background-position: center;
   background-attachment: fixed;
