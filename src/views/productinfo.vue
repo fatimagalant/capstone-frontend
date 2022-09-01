@@ -14,16 +14,16 @@
                 <h1 class="text-black product-name">
                   {{ product.name }}
                 </h1>
+               <p class="text-muted"> description </p>  
                 <p id="image-description" class="text-muted">
-               <p class="text-muted"> description </p> {{ product.descriptions }}
-                </p>
+               {{ product.descriptions }} </p>
                 <h4 class="my-1 text-black">Category:{{ product.category }}</h4>
                 <h5 class="my-1 text-black">R {{ product.price }}</h5>
                 <p class="my-1 text-muted">qty: {{ product.stock }}</p>
                 <button class="btn" @click="addToCart">
                   <i class="fa-solid fa-cart-shopping"></i>
                 </button>
-              </div>
+            </div>
 
               <!-- </div> -->
             </div>
@@ -64,6 +64,7 @@ export default {
   background-size: cover;
   object-fit: contain;
   overflow-x: hidden;
+   z-index: 101;
 }
 h1 {
   font-family: "Aboreto", cursive;
@@ -71,13 +72,16 @@ h1 {
 .container {
   width: 600px;
   height: 500px;
-  margin-top: 250px;
-  margin-bottom: 500px;
+  margin-top: 200px;
+  margin-bottom: 260px;
+  box-shadow: 2px 2px 4px solid black;
 }
 #image-description {
   font-family: "Aboreto", cursive;
   letter-spacing: 2;
   word-spacing: 2;
+  width: -webkit-fill-available;
+height: -webkit-fill-available;
 }
 .product-info {
   display: flex;
@@ -86,9 +90,13 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: 200px;
+  width: -webkit-fill-available;
+height: -webkit-fill-available;
 }
 .candle-image {
   object-fit: contain;
   aspect-ratio: 1;
+      width: -webkit-fill-available;
+    height: -webkit-fill-available;
 }
 </style>

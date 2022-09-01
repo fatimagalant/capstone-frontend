@@ -6,6 +6,7 @@
       class="carousel slide p-5"
       data-bs-ride="carousel"
     >
+    
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img

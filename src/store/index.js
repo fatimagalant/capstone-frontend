@@ -91,7 +91,7 @@ export default createStore({
         .then((user) => context.commit("setUser", user));
     },
     getSingleproduct: async (context, id) => {
-      fetch("https://the-aromary.herokuapp.com/products" + id)
+      fetch("https://the-aromary.herokuapp.com/products/" + id)
         .then((res) => res.json())
         .then((product) => context.commit("setSingleproduct", product));
     },
@@ -126,7 +126,7 @@ export default createStore({
         });
     },
     editproduct: async (context, product) => {
-      fetch("https://the-aromary.herokuapp.com/products" + id, {
+      fetch("https://the-aromary.herokuapp.com/products/" + id, {
         method: "PUT",
         body: JSON.stringify(product),
         headers: {
@@ -139,7 +139,7 @@ export default createStore({
         });
     },
     deleteproduct: async (context, id) => {
-      fetch("https://the-aromary.herokuapp.com/products" + id, {
+      fetch("https://the-aromary.herokuapp.com/products/" + id, {
         method: "DELETE",
       }).then(() => {
         context.dispatch("getproducts");

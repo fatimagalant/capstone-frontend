@@ -74,10 +74,12 @@
                     </div>
                   </div>
                 </form>
+                <div class="register">
                 <p class="text-align-center register-here">
                   Don't have an account ? Register
                   <a href="/register">here</a>
-                </p>
+                </p> 
+                </div>
               </div>
             </div>
           </div>

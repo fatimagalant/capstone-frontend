@@ -2,6 +2,7 @@
   <section id="products">
     <h1 class="padding">Check out our Products</h1>
     <div v-if="products"></div>
+    <button id="sort" @click="sortByPrice()">Sort by price <i class="fa-solid fa-sort"></i></button>
     <div class="row p-5">
       <div
         v-for="product in products"
@@ -27,7 +28,7 @@
               </router-link>
             </div>
             <img
-              class="cart-img" @click="addToCart()"
+              class="cart-img" @click="addToCart(item)"
               src="https://i.postimg.cc/mgRNLpx1/shopping-cart-empty-side-view.png"
               alt=""
             />
@@ -64,6 +65,16 @@ export default {
       return isMatch;
     });
   },
+   sortByPrice: (state) => {
+      state.products.sort((a, b) => {
+        return a.price - b.price; //like vanilla javascript, this is how you make a sort function
+      });
+      if (!state.asc) {
+        //if the asc is not true, it reverses the current order of the list
+        state.products.reverse(); // reverts the order
+      }
+      state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
+    },
 };
 </script>
 <style scoped>
@@ -72,13 +83,15 @@ export default {
   font-family: "Aboreto", cursive;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: white;
+   z-index: 101;
 }
 .card {
   /* width: 400px;
   height: 520px; */
   border-radius: 0 !important;
-  box-shadow: 1px 1px 4px;
-  background-color: rgb(255, 254, 238);
+  box-shadow: 1px 1px 2px;
+  background-color: rgba(233, 231, 217, 0);
 }
 @media screen and (max-width: 600px) {
   .card {
@@ -100,7 +113,11 @@ export default {
   font-family: "Poppins", sans-serif;
 font-size: smaller;
 border: none;
-padding: 5px;
+padding: 10px;
+}
+#sort{
+  font-family: "Poppins", sans-serif;
+font-weight: 600;
 }
 .padding{
 padding-top: 150px;
@@ -110,6 +127,9 @@ padding-top: 150px;
   color: rgb(0, 0, 0);
   font-family: "Poppins", sans-serif;
 font-size: smaller;
+}
+hr{
+  color: wheat;
 }
 .cart {
   padding-bottom: 3px;
@@ -131,6 +151,9 @@ font-size: smaller;
   margin-bottom: 10px;
   display: flex;
   justify-items: center;
+}
+.cart-img:hover {
+  color: khaki;
 }
 #product-link {
   text-decoration-line: none;

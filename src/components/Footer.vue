@@ -57,7 +57,7 @@ a {
   text-decoration-line: none !important;
 }
 a:hover {
-  color: #b5a5a5;
+  color: khaki;
   text-decoration-line: none !important;
 }
 a:active {

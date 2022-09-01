@@ -22,7 +22,7 @@
                 <div class="form-group">
                   <label class="form-control-label">FULL NAME</label>
                   <input
-                    v-model="fullname"
+                    v-model="full_name"
                     type="text"
                     placeholder="full name"
                     class="form-control"
@@ -40,7 +40,7 @@
                 <div class="form-group">
                   <label class="form-control-label">PASSWORD</label>
                   <input
-                    v-model="userpassword"
+                    v-model="password"
                     type="password"
                     placeholder="password"
                     class="form-control"
@@ -50,7 +50,7 @@
                 <div class="form-group">
                   <label class="form-control-label">PHONE NUMBER</label>
                   <input
-                    v-model="phonenumber"
+                    v-model="phone"
                     type="number"
                     placeholder="phone number"
                     class="form-control"
@@ -81,36 +81,31 @@
 </template>
 <script>
 export default {
-  components: {},
+computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  data() {
+    return {
+      full_name: "",
+      email: "",
+      password: "",
+      phone: "",
+    };
+  },
+  methods: {
+    register() {
+      this.$store.dispatch("register", {
+        full_name: this.full_name,
+        email: this.email,
+        password: this.password,
+        phone: this.phone,
+      });
+    },
+  },
 };
-//   computed: {
-//     user() {
-//       return this.$store.state.user;
-//     },
-//   },
-//   data() {
-//     return {
-//       fullname: "",
-//       email: "",
-//       userpassword: "",
-//       joinDate: "",
-//       userRole: "",
-//       phonenumber: "",
-//     };
-//   },
-//   methods: {
-//     register() {
-//       this.$store.dispatch("register", {
-//         fullname: this.fullname,
-//         email: this.email,
-//         userpassword: this.userpassword,
-//         joinDate: this.joinDate,
-//         userRole: this.userRole,
-//         phone: this.phonenumber,
-//       });
-//     },
-//   },
-// };
+
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
