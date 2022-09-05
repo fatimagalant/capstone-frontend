@@ -24,7 +24,9 @@
       <div class="modal-dialog">
         <div class="modal-content p-2">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create A New Candle</h5>
+            <h5 class="modal-title" id="exampleModalLabel">
+              Create A New Candle
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -95,6 +97,9 @@
       </div>
     </div>
 
+    <div class="heading">
+      <h1>USERS ADMIN PAGE</h1>
+    </div>
     <table class="table dark text-secondary">
       <thead>
         <tr>
@@ -150,7 +155,6 @@
           <th scope="col">CART</th>
           <th scope="col">PHONE</th>
           <th scope="col">USER ROLE</th>
-
         </tr>
       </thead>
       <tbody>

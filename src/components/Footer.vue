@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="bg-dark text-light p-3">
+  <footer id="footer" class="p-3">
     <!-- <div class="row">
       <div class="col-md-6">
         <h6 class="text-muted">Quick Links</h6>
@@ -38,7 +38,8 @@
         ></a>
       </div>
       <div class="col-md-6">
-        Copyright © All rights reserved.  Developed By Fatima Galant / The Aromary.
+        Copyright © All rights reserved. Developed By Fatima Galant / The
+        Aromary.
       </div>
     </div>
   </footer>
@@ -51,6 +52,8 @@ export default {};
 #footer {
   font-weight: 500;
   font-family: "Poppins", sans-serif;
+  background-color: #1a2226;
+  color: white;
 }
 a {
   color: white;
@@ -68,7 +71,7 @@ a:active {
   flex-direction: row;
   justify-content: space-evenly;
 }
-i{
+i {
   font-size: large;
 }
 ul {

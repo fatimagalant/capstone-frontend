@@ -47,7 +47,7 @@ export default {};
   position: fixed;
   top: 0;
   width: 100%;
-  background: #000000;
+  background: #1a2226;
   color: rgb(255, 255, 255);
   /* opacity: 0.85; */
   z-index: 100;
