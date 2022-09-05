@@ -6,7 +6,6 @@
       class="carousel slide p-5"
       data-bs-ride="carousel"
     >
-    
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
@@ -56,7 +55,8 @@
     <hr />
     <h4 class="featured">Featured</h4>
     <p class="text-muted p-3">
-      click <a href="/products">here</a> to browse some of our products
+      click <router-link to="/products">here</router-link> to browse some of our
+      products
     </p>
     <hr />
     <div class="container">
@@ -141,7 +141,7 @@ export default {};
     height: 400px;
   }
 }
-hr{
+hr {
   color: khaki;
 }
 #overlay:hover {
