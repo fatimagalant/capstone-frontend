@@ -97,9 +97,6 @@
       </div>
     </div>
 
-    <div class="heading">
-      <h1>USERS ADMIN PAGE</h1>
-    </div>
     <table class="table dark text-secondary">
       <thead>
         <tr>
@@ -144,6 +141,10 @@
         </tr>
       </tbody>
     </table>
+    
+    <div class="heading">
+      <h1>USERS ADMIN PAGE</h1>
+    </div>
     <table class="table dark text-secondary">
       <thead>
         <tr>
