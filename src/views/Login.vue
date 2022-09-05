@@ -1,6 +1,5 @@
 <template>
   <section id="Login">
-    <NavBar />
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-2"></div>
@@ -86,7 +85,6 @@
         </div>
       </div>
     </div>
-    <Footer />
   </section>
 </template>
 <script>

@@ -41,42 +41,56 @@ export default createStore({
       state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
     },
   },
- 
+
   // Actions are for ASYNC / Fetch calls
   actions: {
     login: async (context, payload) => {
-      const { email, password } = payload;
-
-      fetch("https://the-aromary.herokuapp.com/users/login", {
+      let res = await fetch("https://the-aromary.herokuapp.com/users/login", {
         method: "POST",
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+          "Content-Type": "application/json",
         },
-      })
-        .then((response) => response.json())
-        .then((json) => context.commit("setUser", json.token));
+        body: JSON.stringify({
+          email: payload.email,
+          password: payload.password,
+        }),
+      });
+
+      let data = await res.json();
+
+      if (data.token) {
+        context.commit("setToken", data.token);
+
+        // Verify token
+        //
+        fetch("https://the-aromary.herokuapp.com/users/users/verify", {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": data.token,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            context.commit("setUser", data.user);
+            router.push("/products");
+          });
+      }
     },
     register: async (context, payload) => {
-      const { full_name, email, password, phone } = payload;
-
       fetch("https://the-aromary.herokuapp.com/users/register", {
         method: "POST",
         body: JSON.stringify({
-          full_name: full_name,
-          email: email,
-          password: password,
-          phone: phone,
+          full_name: payload.full_name,
+          email: payload.email,
+          password: payload.password,
+          phone: payload.phone,
         }),
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+          "Content-type": "application/json",
         },
       })
         .then((response) => response.json())
-        .then((json) => context.commit("setUser", json));
+        .then((data) => console.log(data));
     },
     getproducts: async (context) => {
       //async (context) must ALWAYS be in

@@ -14,33 +14,35 @@
         :key="product.product_id"
         class="product col-md-3 p-5"
       >
-        <div class="row">
-          <div class="card">
-            <!-- <div class="col-md-4"> -->
-            <img class="img-fluid" v-bind:src="product.image" alt="" />
-            <hr />
-            <div class="product-info">
-              <h4>
-                <strong> {{ product.name }} </strong>
-                <p class="text-muted">{{ product.category }}</p>
-              </h4>
-              <p class="poppins">R {{ product.price }}</p>
-              <router-link
-                id="product-link"
-                :to="{
-                  name: 'productinfo',
-                  params: { id: product.product_id },
-                }"
-              >
-                <button id="button">View Product</button>
-              </router-link>
+        <div class="box-wrap">
+          <div class="row">
+            <div class="card">
+              <!-- <div class="col-md-4"> -->
+              <img class="img-fluid" v-bind:src="product.image" alt="" />
+              <hr />
+              <div class="product-info">
+                <h4>
+                  <strong> {{ product.name }} </strong>
+                  <p class="text-muted">{{ product.category }}</p>
+                </h4>
+                <p class="poppins">R {{ product.price }}</p>
+                <router-link
+                  id="product-link"
+                  :to="{
+                    name: 'productinfo',
+                    params: { id: product.product_id },
+                  }"
+                >
+                  <button id="button">View Product</button>
+                </router-link>
+              </div>
+              <img
+                class="cart-img"
+                @click="addToCart(item)"
+                src="https://i.postimg.cc/mgRNLpx1/shopping-cart-empty-side-view.png"
+                alt=""
+              />
             </div>
-            <img
-              class="cart-img"
-              @click="addToCart(item)"
-              src="https://i.postimg.cc/mgRNLpx1/shopping-cart-empty-side-view.png"
-              alt=""
-            />
           </div>
         </div>
       </div>
@@ -99,8 +101,27 @@ export default {
   /* width: 400px;
   height: 520px; */
   border-radius: 0 !important;
-  box-shadow: 1px 1px 2px;
+  box-shadow: 1px 1px 4px;
   background-color: rgba(233, 231, 217, 0);
+  transition: 0.2s all;
+}
+.box-wrap:hover .card:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+}
+.box-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 10%; */
+}
+.box-wrap:hover .card {
+  filter: blur(3px);
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: none;
 }
 @media screen and (max-width: 600px) {
   .card {
