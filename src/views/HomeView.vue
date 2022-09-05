@@ -54,7 +54,8 @@
     </div>
     <h1 class="heading">Welcome to The Aromary</h1>
     <hr />
-    <p class="text-muted">
+    <h4 class="featured">Featured</h4>
+    <p class="text-muted p-3">
       click <a href="/products">here</a> to browse some of our products
     </p>
     <hr />
@@ -102,7 +103,6 @@
       </div>
     </div>
     <hr />
-    <h4 class="featured">Featured</h4>
     <Footer />
   </section>
 </template>

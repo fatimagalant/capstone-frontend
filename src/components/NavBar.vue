@@ -11,7 +11,6 @@
         <nav class="nav-links">
           <router-link to="/">Home </router-link>
           <router-link to="/about">About </router-link>
-          <router-link to="/sales">Sales </router-link>
           <router-link to="/products">Products </router-link>
           <router-link to="/contact">Contact </router-link>
           <router-link to="/login">Login </router-link>
@@ -46,6 +45,7 @@ export default {};
 
 .navbar {
   position: fixed;
+  top: 0;
   width: 100%;
   background: #000000;
   color: rgb(255, 255, 255);
@@ -74,7 +74,7 @@ export default {};
 }
 
 .navbar a.router-link-active {
-  color:khaki;
+  color: khaki;
 }
 .navbar-container {
   display: flex;
@@ -109,7 +109,7 @@ export default {};
 .navbar a:hover {
   color: #b5a5a5;
 }
-.nav-links{
+.nav-links {
   padding-right: 150px;
 }
 @media (max-width: 768px) {
@@ -218,7 +218,6 @@ export default {};
     nav.nav-links {
       display: flex;
       flex-direction: column;
-    
     }
   }
   .navbar .menu-items li {

@@ -2,7 +2,12 @@
   <section id="products">
     <h1 class="padding">Check out our Products</h1>
     <div v-if="products"></div>
-    <button id="sort" @click="sortByPrice()">Sort by price <i class="fa-solid fa-sort"></i></button>
+    <div v-else class="p-5">
+      <h1>Loading...</h1>
+    </div>
+    <button id="sort" @click="sortByPrice()">
+      Sort by price <i class="fa-solid fa-sort"></i>
+    </button>
     <div class="row p-5">
       <div
         v-for="product in products"
@@ -22,13 +27,17 @@
               <p class="poppins">R {{ product.price }}</p>
               <router-link
                 id="product-link"
-                :to="{ name: 'productinfo', params: { id: product.product_id } }"
+                :to="{
+                  name: 'productinfo',
+                  params: { id: product.product_id },
+                }"
               >
                 <button id="button">View Product</button>
               </router-link>
             </div>
             <img
-              class="cart-img" @click="addToCart(item)"
+              class="cart-img"
+              @click="addToCart(item)"
               src="https://i.postimg.cc/mgRNLpx1/shopping-cart-empty-side-view.png"
               alt=""
             />
@@ -65,16 +74,16 @@ export default {
       return isMatch;
     });
   },
-   sortByPrice: (state) => {
-      state.products.sort((a, b) => {
-        return a.price - b.price; //like vanilla javascript, this is how you make a sort function
-      });
-      if (!state.asc) {
-        //if the asc is not true, it reverses the current order of the list
-        state.products.reverse(); // reverts the order
-      }
-      state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
-    },
+  sortByPrice: (state) => {
+    state.products.sort((a, b) => {
+      return a.price - b.price; //like vanilla javascript, this is how you make a sort function
+    });
+    if (!state.asc) {
+      //if the asc is not true, it reverses the current order of the list
+      state.products.reverse(); // reverts the order
+    }
+    state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
+  },
 };
 </script>
 <style scoped>
@@ -84,7 +93,7 @@ export default {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: white;
-   z-index: 101;
+  z-index: 101;
 }
 .card {
   /* width: 400px;
@@ -106,29 +115,29 @@ export default {
   height: 300px;
   object-fit: contain;
   aspect-ratio: 1;
-} 
-#button{
+}
+#button {
   background-color: black;
   color: white;
   font-family: "Poppins", sans-serif;
-font-size: smaller;
-border: none;
-padding: 10px;
+  font-size: smaller;
+  border: none;
+  padding: 10px;
 }
-#sort{
+#sort {
   font-family: "Poppins", sans-serif;
-font-weight: 600;
+  font-weight: 600;
 }
-.padding{
-padding-top: 150px;
+.padding {
+  padding-top: 150px;
 }
-#button:hover{
+#button:hover {
   background-color: khaki;
   color: rgb(0, 0, 0);
   font-family: "Poppins", sans-serif;
-font-size: smaller;
+  font-size: smaller;
 }
-hr{
+hr {
   color: wheat;
 }
 .cart {
@@ -163,5 +172,4 @@ hr{
   text-decoration-line: none;
   color: khaki;
 }
-
 </style>
