@@ -19,6 +19,9 @@
           <router-link to="/cart"
             ><i class="fa-solid fa-cart-shopping"></i>
           </router-link>
+          <router-link to="/account"
+            ><i class="fa-regular fa-user"></i>
+          </router-link>
         </nav>
       </ul>
       <h1 class="logo">
