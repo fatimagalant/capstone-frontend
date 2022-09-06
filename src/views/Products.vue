@@ -123,7 +123,7 @@ export default {
 }
 @media screen and (max-width: 600px) {
   .card {
-    width: 200px;
+    width: 300px;
     border-radius: 0 !important;
     box-shadow: 2px 2px 8px;
   }
