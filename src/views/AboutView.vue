@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <div class="container">
           <img
-            class="img-fluid p-5"
+            class="img-fluid"
             src="https://i.postimg.cc/tgTvK4cf/pexels-cup-of-couple-7303983.jpg"
             alt="candles"
           />

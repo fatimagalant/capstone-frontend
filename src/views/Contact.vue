@@ -164,7 +164,7 @@ ul {
 /* COMPANY INFORMATION */
 /* ------------------- */
 .company-info {
-  background-image: linear-gradient(to right, khaki, rgb(255, 255, 255));
+  background-image: linear-gradient(to right, grey, rgb(255, 255, 255));
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   font-family: "Poppins", sans-serif;

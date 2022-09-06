@@ -24,22 +24,23 @@
     <!-- <hr /> -->
     <div class="row">
       <div id="socials" class="col-md-6">
-        <h6 class="text-muted">socials</h6>
+        <h6 class="text-muted pb-3">socials</h6>
         <a href="https://www.instagram.com" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
+          ><i class="fa-brands fa-instagram pb-3"></i
         ></a>
 
         <a href="https://www.twitter.com" target="_blank"
-          ><i class="fa-brands fa-twitter"></i
+          ><i class="fa-brands fa-twitter pb-3"></i
         ></a>
 
         <a href="https://za.pinterest.com/"
-          ><i class="fa-brands fa-pinterest-p"></i
+          ><i class="fa-brands fa-pinterest-p pb-3"></i
         ></a>
       </div>
       <div class="col-md-6">
-        Copyright © All rights reserved. Developed By Fatima Galant / The
-        Aromary.
+       <p class="text-muted"> Copyright © 2022 All rights reserved. 
+        </p> <p class="text-muted"> Developed By Fatima Galant / The
+        Aromary. </p>
       </div>
     </div>
   </footer>

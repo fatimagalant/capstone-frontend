@@ -125,6 +125,10 @@ export default {};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
+}
+::-webkit-scrollbar {
+    display: none;
 }
 .img-fluid {
   aspect-ratio: 1;
