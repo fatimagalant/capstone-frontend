@@ -22,6 +22,9 @@
           <router-link to="/account"
             ><i class="fa-regular fa-user"></i>
           </router-link>
+          <button @click="logout()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
         </nav>
       </ul>
       <h1 class="logo">
@@ -31,7 +34,13 @@
   </nav>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    logout() {
+      this.$store.commit("logout");
+    },
+  },
+};
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
@@ -115,6 +124,9 @@ export default {};
 }
 .nav-links {
   padding-right: 295px;
+}
+i{
+  margin-right: 15px;
 }
 @media (max-width: 768px) {
   .navbar-container input[type="checkbox"],

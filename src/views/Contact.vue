@@ -154,7 +154,7 @@ ul {
   padding: 0;
 }
 .wrapper {
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.7);
 }
 .wrapper > * {
   padding: 1em;
@@ -163,7 +163,7 @@ ul {
 /* COMPANY INFORMATION */
 /* ------------------- */
 .company-info {
-  background-image: linear-gradient(to right, grey, rgb(255, 255, 255));
+  /* background-image: linear-gradient(to right, grey, rgb(255, 255, 255)); */
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   font-family: "Poppins", sans-serif;

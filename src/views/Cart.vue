@@ -11,7 +11,7 @@
                   <!-- {{ product }} -->
                   <h4>Price:R {{ product.price }}</h4>
                 <h4>Price:R {{ product.price }}</h4>
-                  <img v-bind="product.image" class="mb-2" alt="candle" />
+                  <img v-bind:src="product.image" class="mb-2" alt="candle" />
                   <h3>{{ product.title }}</h3>
                   <p class="color-secondary">{{ product.category }}</p>
                   <!-- <p class="unit">
@@ -84,3 +84,9 @@ export default {
   // },
 };
 </script>
+<style scoped>
+#cart{
+  background-color: white;
+  min-height: 100vh;
+}
+</style>

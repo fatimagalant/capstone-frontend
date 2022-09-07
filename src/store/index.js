@@ -43,6 +43,13 @@ export default createStore({
       }
       state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
     },
+    logout: (state) => {
+      (state.user = ""),
+        (state.token = ""),
+        (state.users = ""),
+        (state.product = ""),
+        (state.products = "");
+    },
   },
 
   // Actions are for ASYNC / Fetch calls
