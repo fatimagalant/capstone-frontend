@@ -6,6 +6,34 @@
     <button id="sort" @click="sortByPrice()">
       Sort by price <i class="fa-solid fa-sort"></i>
     </button>
+   <select class="categories" v-model="category">
+        <option class="category" value="All" selected>All</option>
+        <option class="category" value="one wick">one wick</option>
+        <option class="category" value="twisty">twisty</option>
+        <option class="category" value="bubble shape">bubble shape</option>
+        <option class="category" value="bees wax">bees wax</option>
+      </select>
+        <div class="products">
+    <div class="filters pt-4">
+      <input
+        type="text"
+        class="search fw-bold"
+        id=""
+        placeholder="Search..."
+        v-model="search"
+      />
+    </div>
+    <div
+      v-if="filteredcategories"
+      class="products-container container-fluid pb-4 pt-3"
+    >
+      <products
+        v-for="product in filteredcategories"
+        :key="product.id"
+        :product="product"
+      />
+    </div>
+  </div>
     <div class="row p-5">
       <div
         v-for="product in products"
@@ -49,40 +77,40 @@
 </template>
 <script>
 export default {
+  props: ["product"],
   mounted() {
     this.$store.dispatch("getproducts");
   },
+  data() {
+  return {
+    search: "",
+    category: "All",
+  };
+},
   computed: {
     products() {
       console.log(this.$store.state.products);
       return this.$store.state.products;
+    },
+    filteredcategories() {
+      return this.$store.state.products?.filter((product) => {
+        let isMatch = true;
+        if (!product.title?.toLowerCase().includes(this.search.toLowerCase()))
+          isMatch = false;
+        if (this.category !== "All" && product.category !== this.category)
+          isMatch = false;
+        return isMatch;
+      });
     },
   },
   methods: {
     addToCart(item) {
       this.$store.commit("updateCart", item);
     },
-    addToCart(item) {
-      this.$store.commit("updateCart", item);
+    sortByPrice() {
+      //gives function a name (does not need to be the same as the name given in the store)
+      this.$store.commit("sortByPrice"); //runs the function in the store
     },
-  },
-  filteredProducts() {
-    return this.$store.state.products?.filter((product) => {
-      let isMatch = true;
-      if (!product.category?.toLowerCase().includes(this.search.toLowerCase()))
-        isMatch = false;
-      return isMatch;
-    });
-  },
-  sortByPrice: (state) => {
-    state.products.sort((a, b) => {
-      return a.price - b.price; //like vanilla javascript, this is how you make a sort function
-    });
-    if (!state.asc) {
-      //if the asc is not true, it reverses the current order of the list
-      state.products.reverse(); // reverts the order
-    }
-    state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
   },
 };
 </script>

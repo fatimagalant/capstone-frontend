@@ -39,6 +39,12 @@
               <input
                 type="text"
                 id="title-add"
+                placeholder="Sku"
+                v-model="sku"
+              />
+              <input
+                type="text"
+                id="title-add"
                 placeholder="Candle Name"
                 v-model="name"
               />
@@ -61,6 +67,12 @@
                   placeholder="Price"
                   v-model="price"
                 />
+                <input
+                  type="number"
+                  id="weight-add"
+                  placeholder="Weight"
+                  v-model="weight"
+                />
               </div>
 
               <input
@@ -75,7 +87,7 @@
                 cols="57"
                 rows="10"
                 placeholder="Description of your Candle"
-                v-model="description"
+                v-model="descriptions"
               ></textarea>
               <button
                 type="button"
@@ -198,22 +210,26 @@ export default {
   },
   data() {
     return {
+      sku: "",
       name: "",
       category: "",
       description: "",
       image: "",
       price: "",
+      weight: "",
       stock: "",
     }
   },
   methods: {
     createproduct() {
       return this.$store.dispatch("createproduct", {
+        sku: this.sku,
         name: this.name,
         category: this.category,
         description: this.description,
         image: this.image,
         price: this.price,
+        weight: this.weight,
         stock: this.stock,
       });
       console.log("products")
