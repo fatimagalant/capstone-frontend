@@ -21,6 +21,9 @@ export default createStore({
     setSingleproduct: (state, product) => {
       state.product = product;
     },
+    setCart: (state, cart) => {
+      state.cart = cart;
+    },
     updateCart: (state, product) => {
       state.cart.push(product);
     },
@@ -76,22 +79,37 @@ export default createStore({
           });
       }
     },
-    register: async (context, payload) => {
+    register: async (context, user) => {
+      // console.log(product);
       fetch("https://the-aromary.herokuapp.com/users/register", {
         method: "POST",
-        body: JSON.stringify({
-          full_name: payload.full_name,
-          email: payload.email,
-          password: payload.password,
-          phone: payload.phone,
-        }),
+        body: JSON.stringify(user),
         headers: {
-          "Content-type": "application/json",
+          "Content-type": "application/json; charset=UTF-8",
         },
       })
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((json) => {
+          context.commit("setUsers", json);
+        });
     },
+    //   register: async (context, payload) => {
+    //   const { full_name, email, password, phone } = payload;
+    //   fetch("https://the-aromary.herokuapp.com/users/register", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       full_name: payload.full_name,
+    //       email: payload.email,
+    //       password: payload.password,
+    //       phone: payload.phone,
+    //     }),
+    //     headers: {
+    //       "Content-type": "application/json",
+    //     },
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => console.log(data));
+    // },
     getproducts: async (context) => {
       //async (context) must ALWAYS be in
       fetch("https://the-aromary.herokuapp.com/products")
@@ -104,11 +122,11 @@ export default createStore({
         .then((res) => res.json())
         .then((user) => context.commit("setUser", user));
     },
-    getSingleproduct: async (context, id) => {
-      fetch("https://the-aromary.herokuapp.com/products/" + id)
-        .then((res) => res.json())
-        .then((product) => context.commit("setSingleproduct", product));
-    },
+    // getSingleproduct: async (context, id) => {
+    //   fetch("https://the-aromary.herokuapp.com/products/" + id)
+    //     .then((res) => res.json())
+    //     .then((product) => context.commit("setSingleproduct", product));
+    // },
     createproduct: async (context, product) => {
       // console.log(product);
       fetch("https://the-aromary.herokuapp.com/products", {
@@ -122,21 +140,6 @@ export default createStore({
         .then((products) => {
           console.log(products);
           // context.dispatch("getproducts", product);
-        });
-    },
-    createuser: async (context, user) => {
-      // console.log(product);
-      fetch("https://the-aromary.herokuapp.com/users", {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((users) => {
-          console.log(users);
-          // context.dispatch("getusers", user);
         });
     },
     editproduct: async (context, product) => {
@@ -169,4 +172,3 @@ export default createStore({
     },
   },
 });
-

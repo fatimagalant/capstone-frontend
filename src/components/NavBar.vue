@@ -55,6 +55,7 @@ export default {};
   /* opacity: 0.85; */
   z-index: 100;
   font-family: "Aboreto", cursive;
+  word-spacing: 10px;
 }
 @media screen and (max-width: 700px) {
   .navbar {
@@ -113,7 +114,7 @@ export default {};
   color: #b5a5a5;
 }
 .nav-links {
-  padding-right: 150px;
+  padding-right: 295px;
 }
 @media (max-width: 768px) {
   .navbar-container input[type="checkbox"],

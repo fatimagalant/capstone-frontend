@@ -1,5 +1,6 @@
 <template>
   <div v-if="user">
+    
   </div>
   <div class="card">
     {{user.full_name}}

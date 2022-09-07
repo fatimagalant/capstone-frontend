@@ -17,11 +17,8 @@
             />
           </div>
           <div id="login-margin">
-            <h1 v-if="user" id="login-header">
-              <a href="/products">Check out our candles</a>
-            </h1>
             <p id="login-subheader" class="py-2" v-if="user">
-              {{ user.fullname }}
+              Welcome {{ user.full_name }} .
             </p>
             <p id="login-subheader" class="py-2" v-else>
               our vast collection awaits...
@@ -74,10 +71,10 @@
                   </div>
                 </form>
                 <div class="register">
-                <p class="text-align-center register-here">
-                  Don't have an account ? Register
-                  <a href="/register">here</a>
-                </p> 
+                  <p class="text-align-center register-here">
+                    Don't have an account ? Register
+                    <a href="/register">here</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -107,6 +104,7 @@ export default {
         email: this.email,
         password: this.password,
       });
+      // this.$router.push("/");
     },
   },
   mounted() {
@@ -118,7 +116,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
 #Login {
   /* background-color: rgb(255, 255, 255); */
-  background-image: url("https://i.postimg.cc/W48XFfw9/5208116.jpg");
+  background-image: url("https://i.postimg.cc/mggdRPd5/visax-2nn-P3aoes-Y-unsplash.jpg");
   min-height: 100vh;
   background-position: center;
   background-attachment: fixed;

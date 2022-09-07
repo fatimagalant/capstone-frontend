@@ -1,6 +1,5 @@
 <template>
   <section id="home" class="bg-light text-dark">
-    <NavBar />
     <div
       id="carouselExampleControls"
       class="carousel slide p-5"
@@ -103,7 +102,6 @@
       </div>
     </div>
     <hr />
-    <Footer />
   </section>
 </template>
 

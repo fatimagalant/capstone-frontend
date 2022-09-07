@@ -47,11 +47,47 @@
                   />
                 </div>
                 <div class="form-group">
+                  <label class="form-control-label">COUNTRY</label>
+                  <input
+                    v-model="coountry"
+                    type="text"
+                    placeholder="country"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
                   <label class="form-control-label">PHONE NUMBER</label>
                   <input
                     v-model="phone"
                     type="number"
                     placeholder="phone number"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">BILLING ADDRESS</label>
+                  <input
+                    v-model="billing_address"
+                    type="text"
+                    placeholder="billing address"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">DEFAULT SHIPPING ADDRESS</label>
+                  <input
+                    v-model="default_shipping_address"
+                    type="text"
+                    placeholder="default shipping address"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">USER ROLE</label>
+                  <input
+                    v-model="userRole"
+                    type="text"
+                    placeholder="user role"
                     class="form-control"
                   />
                 </div>
@@ -80,17 +116,25 @@
 </template>
 <script>
 export default {
-computed: {
+  computed: {
     user() {
       return this.$store.state.user;
     },
+    users() {
+      return this.$store.state.users;
+    },
   },
   data() {
+    const userRole="user";
     return {
       full_name: "",
       email: "",
       password: "",
       phone: "",
+      country: "",
+      billing_address: "",
+      default_shipping_address: "",
+      userRole,
     };
   },
   methods: {
@@ -100,16 +144,19 @@ computed: {
         email: this.email,
         password: this.password,
         phone: this.phone,
+        country: this.country,
+        billing_address: this.billing_address,
+        default_shipping_address: this.default_shipping_address,
+        userRole: this.userRole,
       });
     },
   },
 };
-
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
 #register {
-  background-image: url("https://i.postimg.cc/W48XFfw9/5208116.jpg");
+  background-image: url("https://i.postimg.cc/mggdRPd5/visax-2nn-P3aoes-Y-unsplash.jpg");
   min-height: 100vh;
   background-position: center;
   background-attachment: fixed;
@@ -124,7 +171,7 @@ computed: {
   flex-direction: column;
   align-content: center;
   display: flex;
-  margin-top: 7rem;
+  margin-top: 5rem;
   height: auto;
   background: #ffffff;
   text-align: center;

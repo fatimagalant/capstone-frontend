@@ -24,17 +24,17 @@
     <!-- <hr /> -->
     <div class="row">
       <div id="socials" class="col-md-6">
-        <h6 class="text-muted pb-3">socials</h6>
+        <h6 class="text-muted pb-3 pt-4">socials</h6>
         <a href="https://www.instagram.com" target="_blank"
-          ><i class="fa-brands fa-instagram pb-3"></i
+          ><i class="fa-brands fa-instagram pb-3 pt-4"></i
         ></a>
 
         <a href="https://www.twitter.com" target="_blank"
-          ><i class="fa-brands fa-twitter pb-3"></i
+          ><i class="fa-brands fa-twitter pb-3 pt-4"></i
         ></a>
 
         <a href="https://za.pinterest.com/"
-          ><i class="fa-brands fa-pinterest-p pb-3"></i
+          ><i class="fa-brands fa-pinterest-p pb-3 pt-4"></i
         ></a>
       </div>
       <div class="col-md-6">

@@ -40,7 +40,7 @@
                 type="text"
                 id="title-add"
                 placeholder="Candle Name"
-                v-model="title"
+                v-model="name"
               />
               <input
                 type="text"
@@ -111,37 +111,37 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <div v-if="products"></div>
-          <div v-for="product in products" :key="product.product_id">
-            <div class="row">
-              <td scope="col-1">{{ product.id }}</td>
-              <td scope="col-1">{{ product.name }}</td>
-              <td scope="col-1">{{ product.category }}</td>
-              <td scope="col-1">{{ product.description }}</td>
-              <td scope="col-1">{{ product.image }}</td>
-              <td scope="col-1">{{ product.price }}</td>
-              <td scope="col-1">{{ product.stock }}</td>
-              <td scope="col-1">{{ product.category }}</td>
-              <td scope="col-1">
-                <button type="btn">
-                  <i
-                    title="Edit"
-                    class="bi bi-pencil-square"
-                    id="edit"
-                    @click="toggleModal"
-                  ></i>
-                </button>
-                <button type="btn" @click="deleteproduct">
-                  <i class="fa-solid fa-trash-can"></i>
-                </button>
-              </td>
-            </div>
-          </div>
+        <tr v-for="product in products" :key="product.product_id">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.description }}</td>
+          <td>
+            <img
+              v-bind:src="product.image"
+              class="product.img"
+            />
+          </td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.stock }}</td>
+          <!-- <td>{{ product.category }}</td> -->
+          <td>
+            <button type="btn">
+              <i
+                title="Edit"
+                class="bi bi-pencil-square"
+                id="edit"
+                @click="toggleModal"
+              ></i>
+            </button>
+            <button type="btn" @click="deleteproduct">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
-    
+
     <div class="heading">
       <h1>USERS ADMIN PAGE</h1>
     </div>
@@ -159,80 +159,84 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <div v-if="users"></div>
-          <div v-for="user in users" :key="user.user_id">
-            <div class="row">
-              <td scope="col-1">{{ user.id }}</td>
-              <td scope="col-1">{{ user.full_name }}</td>
-              <td scope="col-1">{{ user.email }}</td>
-              <td scope="col-1">{{ user.billing_address }}</td>
-              <td scope="col-1">{{ user.country }}</td>
-              <td scope="col-1">{{ user.cart }}</td>
-              <td scope="col-1">{{ user.phone }}</td>
-              <td scope="col-1">{{ user.userRole }}</td>
-              <td scope="col-1">
-                <button type="btn">
-                  <i
-                    title="Edit"
-                    class="bi bi-pencil-square"
-                    id="edit"
-                    @click="toggleModal"
-                  ></i>
-                </button>
-                <button type="btn" @click="deleteuser">
-                  <i class="fa-solid fa-trash-can"></i>
-                </button>
-              </td>
-            </div>
-          </div>
+        <tr v-for="user in users" :key="user.user_id">
+          <td>{{ user.id }}</td>
+          <td>{{ user.full_name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.billing_address }}</td>
+          <td>{{ user.country }}</td>
+          <td>{{ user.cart }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.userRole }}</td>
+          <td>
+            <button type="btn">
+              <i
+                title="Edit"
+                class="bi bi-pencil-square"
+                id="edit"
+                @click="toggleModal"
+              ></i>
+            </button>
+            <button type="btn" @click="deleteuser">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
   </section>
 </template>
 <script>
-//   computed: {
-//     Products() {
-//       return this.$store.state.products;
-//     },
-//   },
-//   data() {
-//     return {
-//       title: "",
-//       category: "",
-//       description: "",
-//       imgURL: "",
-//       price: "",
-//       quantity: "",
-//     };
-//   },
-//   methods: {
-//     createproduct() {
-//       return this.$store.dispatch("createproduct", {
-//         title: this.title,
-//         category: this.category,
-//         description: this.description,
-//         imgURL: this.imgURL,
-//         price: this.price,
-//         quantity: this.quantity,
-//       });
-//       // console.log("products")
-//     },
-//     product() {
-//       return this.$store.state.product;
-//     },
-//     editproduct(id) {
-//       return this.$store.dispatch("editproduct", id);
-//     },
-//     deleteproduct(id) {
-//       return this.$store.dispatch("deleteproduct", id);
-//     },
-//   },
-//   mounted() {
-//     return this.$store.dispatch("getproducts");
-//   },
-// };
+export default {
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+    users() {
+      return this.$store.state.users;
+    }
+  },
+  data() {
+    return {
+      name: "",
+      category: "",
+      description: "",
+      image: "",
+      price: "",
+      stock: "",
+    }
+  },
+  methods: {
+    createproduct() {
+      return this.$store.dispatch("createproduct", {
+        name: this.name,
+        category: this.category,
+        description: this.description,
+        image: this.image,
+        price: this.price,
+        stock: this.stock,
+      });
+      console.log("products")
+    },
+    product() {
+      return this.$store.state.product;
+    },
+    user() {
+      return this.$store.state.user;
+    },
+    editproduct(id) {
+      return this.$store.dispatch("editproduct", id);
+    },
+    deleteproduct(id) {
+      return this.$store.dispatch("deleteproduct", id);
+    },
+  },
+  mounted() {
+    return this.$store.dispatch("getproducts");
+    return this.$store.dispatch("getUser");
+  },
+
+}
 </script>
 <style scoped>
 #admin {
@@ -244,5 +248,11 @@
   padding-top: 4rem;
   padding-bottom: 2rem;
   border: 1px 1px 1px 1px white;
+}
+img{
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 13rem;
+  height: 10rem;
 }
 </style>

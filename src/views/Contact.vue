@@ -86,7 +86,6 @@
     </div>
     <!-- End .container -->
   </section>
-  <Footer />
 </template>
 <script></script>
 <style scoped>

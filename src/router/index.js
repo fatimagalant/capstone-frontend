@@ -42,6 +42,11 @@ const routes = [
     component: () => import('../views/Register.vue')
   },
   {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../views/Cart.vue')
+  },
+  {
     path: '/admin',
     name: 'admin',
     component: () => import('../views/Admin.vue')
@@ -53,7 +58,6 @@ const routes = [
   },
 
 ]
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes

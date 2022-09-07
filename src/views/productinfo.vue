@@ -48,10 +48,16 @@
 
 <script>
 export default {
+  props: ["id"],
   data() {
     return {
       product: null,
     };
+  },
+  computed: {
+    item() {
+      return this.$store.state.item;
+    }
   },
   mounted() {
     fetch("https://the-aromary.herokuapp.com/products/" + this.$route.params.id)

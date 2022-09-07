@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <section id="about">
     <div class="row">
       <div class="col-md-6">
