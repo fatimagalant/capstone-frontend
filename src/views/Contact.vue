@@ -1,5 +1,10 @@
 <template>
   <section id="contact">
+    <i
+      id="back-btn"
+      onclick="history.back()"
+      class="fa-solid fa-arrow-left-long"
+    ></i>
     <div class="container p-5">
       <div class="form-container">
         <div class="left-container">

@@ -1,5 +1,10 @@
 <template>
   <section id="admin">
+    <i
+      id="back-btn"
+      onclick="history.back()"
+      class="fa-solid fa-arrow-left-long"
+    ></i>
     <div class="heading">
       <h1>PRODUCTS ADMIN PAGE</h1>
     </div>
@@ -140,9 +145,7 @@
                 @click="toggleModal"
               ></i>
             </button>
-            <button type="btn" @click="deleteproduct">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
+            <i @click="deleteproduct" class="fa-solid fa-trash-can"></i>
           </td>
         </tr>
       </tbody>

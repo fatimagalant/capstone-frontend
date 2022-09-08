@@ -1,5 +1,10 @@
 <template>
   <section id="Login">
+    <i
+      id="back-btn"
+      onclick="history.back()"
+      class="fa-solid fa-arrow-left-long"
+    ></i>
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-2"></div>

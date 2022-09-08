@@ -15,14 +15,19 @@
           <router-link to="/contact">Contact </router-link>
           <router-link to="/login">Login </router-link>
           <router-link to="/register">Register </router-link>
-          <router-link to="/admin">Admin </router-link>
+          <div>
+            <router-link to="/admin">Admin </router-link>
+          </div>
+          <div></div>
           <router-link to="/cart"
             ><i class="fa-solid fa-cart-shopping"></i>
           </router-link>
-          <router-link to="/account"
-            ><i class="fa-regular fa-user"></i>
-          </router-link>
-          <i @click="logout()" class="fa-solid fa-arrow-right-from-bracket"></i>
+          <div v-if="user">
+            <router-link to="/account"
+              ><i class="fa-regular fa-user"></i>
+            </router-link>
+            <i class="fa-solid fa-arrow-right-from-bracket" @click="logout"></i>
+          </div>
         </nav>
       </ul>
       <h1 class="logo">
@@ -33,9 +38,15 @@
 </template>
 <script>
 export default {
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
   methods: {
     logout() {
       this.$store.commit("logout");
+      $router.push("/login");
     },
   },
 };
@@ -83,7 +94,9 @@ export default {
     font-size: x-large;
   }
 }
-
+.account {
+  display: none;
+}
 .navbar a.router-link-active {
   color: khaki;
 }

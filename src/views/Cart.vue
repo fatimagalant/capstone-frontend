@@ -1,6 +1,11 @@
 <template>
   <body>
     <section class="Cart">
+      <i
+        id="back-btn"
+        onclick="history.back()"
+        class="fa-solid fa-arrow-left-long"
+      ></i>
       <div class="wrapper">
         <h1>Shopping Cart</h1>
         <div class="product">
@@ -10,7 +15,7 @@
                 <div v-for="product in cartproducts" :key="product.id">
                   <!-- {{ product }} -->
                   <h4>Price:R {{ product.price }}</h4>
-                <h4>Price:R {{ product.price }}</h4>
+                  <h4>Price:R {{ product.price }}</h4>
                   <img v-bind:src="product.image" class="mb-2" alt="candle" />
                   <h3>{{ product.title }}</h3>
                   <p class="color-secondary">{{ product.category }}</p>
@@ -41,10 +46,10 @@
                   </div>
                 </div>
               </div>
-              </div>
             </div>
           </div>
         </div>
+      </div>
       <div>
         <p class="namecart">
           <span>Total</span> <span>R{{ calculatePrice }}</span>
@@ -85,7 +90,7 @@ export default {
 };
 </script>
 <style scoped>
-#cart{
+#cart {
   background-color: white;
   min-height: 100vh;
 }

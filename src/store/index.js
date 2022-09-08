@@ -9,6 +9,7 @@ export default createStore({
     user: null,
     cart: [],
     product: null,
+    Token: null,
     products: null,
     users: null,
     asc: true,
@@ -62,6 +63,7 @@ export default createStore({
         (state.users = ""),
         (state.product = ""),
         (state.products = "");
+         router.push("/login");
     },
   },
 

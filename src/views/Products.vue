@@ -1,5 +1,10 @@
 <template>
   <section id="products">
+    <i
+      id="back-btn"
+      onclick="history.back()"
+      class="fa-solid fa-arrow-left-long"
+    ></i>
     <h1 class="padding">Check out our Products</h1>
     <div v-if="products"></div>
     <div v-else class="loading">Loading&#8230;</div>

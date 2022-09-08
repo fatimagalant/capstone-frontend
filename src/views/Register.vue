@@ -1,5 +1,10 @@
 <template>
   <section id="register">
+    <i
+      id="back-btn"
+      onclick="history.back()"
+      class="fa-solid fa-arrow-left-long"
+    ></i>
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-2"></div>
@@ -74,7 +79,9 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label class="form-control-label">DEFAULT SHIPPING ADDRESS</label>
+                  <label class="form-control-label"
+                    >DEFAULT SHIPPING ADDRESS</label
+                  >
                   <input
                     v-model="default_shipping_address"
                     type="text"
@@ -125,7 +132,7 @@ export default {
     },
   },
   data() {
-    const userRole="user";
+    const userRole = "user";
     return {
       full_name: "",
       email: "",

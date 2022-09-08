@@ -1,5 +1,10 @@
 <template>
   <section id="about">
+    <i
+      id="back-btn"
+      onclick="history.back()"
+      class="fa-solid fa-arrow-left-long"
+    ></i>
     <div class="row">
       <div class="col-md-6">
         <div class="container">
@@ -38,64 +43,132 @@
         <p class="sales">Browse our products on <a href="/sales">sale</a></p>
       </div>
     </div>
-    </section>
+  </section>
   <section id="testimonials">
-    <h2>Testimonials from our loyal clients and customers : </h2>
-    <div id="carouselExampleControls" class="carousel slide p-5" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
- <img class="quotes" src="https://i.postimg.cc/G3D0N6y8/quotes.png" alt="quotes" /> <p class="p-quotes p-5">I am completely blown away. Great job, I will definitely be ordering again! I would also like to say thank you to all your staff</p>
-<br>
-     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-     <h4>- Ulrika N.</h4>
-    </div>
-    <div class="carousel-item">
-  <img class="quotes" src="https://i.postimg.cc/G3D0N6y8/quotes.png" alt="quotes" /><p class="p-quotes p-5">It's the perfect solution for our business. Selling candles is the real deal! I'm good to go. Selling candles is the most valuable business resource we have EVER purchased.</p>
-      
-       <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+    <h2>Testimonials from our loyal clients and customers :</h2>
+    <div
+      id="carouselExampleControls"
+      class="carousel slide p-5"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="quotes"
+            src="https://i.postimg.cc/G3D0N6y8/quotes.png"
+            alt="quotes"
+          />
+          <p class="p-quotes p-5">
+            I am completely blown away. Great job, I will definitely be ordering
+            again! I would also like to say thank you to all your staff
+          </p>
+          <br />
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <h4>- Ulrika N.</h4>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="quotes"
+            src="https://i.postimg.cc/G3D0N6y8/quotes.png"
+            alt="quotes"
+          />
+          <p class="p-quotes p-5">
+            It's the perfect solution for our business. Selling candles is the
+            real deal! I'm good to go. Selling candles is the most valuable
+            business resource we have EVER purchased.
+          </p>
 
-     <h4>- Stig S.</h4>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star-half"></i>
 
-    </div>
-    <div class="carousel-item">
-    <img class="quotes" src="https://i.postimg.cc/G3D0N6y8/quotes.png" alt="quotes" /> <p class="p-quotes p-5">Candles is awesome! Since I invested in candles I made over 100,000 dollars profits. Candles was worth a fortune to my company.</p>
-      
-       <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <h4>- Stig S.</h4>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="quotes"
+            src="https://i.postimg.cc/G3D0N6y8/quotes.png"
+            alt="quotes"
+          />
+          <p class="p-quotes p-5">
+            Candles is awesome! Since I invested in candles I made over 100,000
+            dollars profits. Candles was worth a fortune to my company.
+          </p>
 
-     <h4>- Stephan S.</h4>
-    </div>
-    <div class="carousel-item">
-    <img class="quotes" src="https://i.postimg.cc/G3D0N6y8/quotes.png" alt="quotes" /><p class="p-quotes p-5">We were treated like royalty.</p>
-     
-       <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i>
 
-     <h4>- Waylin F.</h4>
-    </div>
-    <div class="carousel-item">
-    <img class="quotes" src="https://i.postimg.cc/G3D0N6y8/quotes.png" alt="quotes" /> <p class="p-quotes p-5">I am completely blown away.</p>
-     
-       <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <h4>- Stephan S.</h4>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="quotes"
+            src="https://i.postimg.cc/G3D0N6y8/quotes.png"
+            alt="quotes"
+          />
+          <p class="p-quotes p-5">We were treated like royalty.</p>
 
-     <h4>- Timi J.</h4>
-    </div>
-    <div class="carousel-item">
-    <img class="quotes" src="https://i.postimg.cc/G3D0N6y8/quotes.png" alt="quotes" /> <p class="p-quotes p-5">I have gotten at least 50 times the value from candles. Just what I was looking for. Absolutely wonderful! We can't understand how we've been living without candles.</p>
-       
-       <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star-half"></i>
 
-     <h4>- Marthe Z.</h4>
+          <h4>- Waylin F.</h4>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="quotes"
+            src="https://i.postimg.cc/G3D0N6y8/quotes.png"
+            alt="quotes"
+          />
+          <p class="p-quotes p-5">I am completely blown away.</p>
+
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i>
+
+          <h4>- Timi J.</h4>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="quotes"
+            src="https://i.postimg.cc/G3D0N6y8/quotes.png"
+            alt="quotes"
+          />
+          <p class="p-quotes p-5">
+            I have gotten at least 50 times the value from candles. Just what I
+            was looking for. Absolutely wonderful! We can't understand how we've
+            been living without candles.
+          </p>
+
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i>
+
+          <h4>- Marthe Z.</h4>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-    </section>
+  </section>
 </template>
 <script>
 export default {};
@@ -128,10 +201,10 @@ hr {
   font-weight: 550;
   padding-left: 10px;
 }
-h2{
+h2 {
   font-family: "Aboreto", cursive;
-   font-weight: 600;
-   font-size: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
 }
 i {
   font-size: 2rem;
@@ -151,7 +224,7 @@ p {
   font-weight: 500;
 }
 
-#testimonials{
+#testimonials {
   min-height: 100vh;
   padding-top: 60px;
 }
@@ -164,7 +237,6 @@ p {
   padding-top: 75px;
 }
 @media screen and (max-widh: 1770px) {
-
   .carousel-control-next-icon {
     /* filter: invert(1); */
     padding-top: 75px;
@@ -182,30 +254,32 @@ p {
   left: 0;
   padding-top: 65px;
 }
-.fa-quote-left-alt:before, .fa-quote-left:before {
-    content: "\f10d";
-    font-size: smaller;
+.fa-quote-left-alt:before,
+.fa-quote-left:before {
+  content: "\f10d";
+  font-size: smaller;
 }
-.fa-quote-right-alt[data-v-4cebd208]:before, .fa-quote-right[data-v-4cebd208]:before {
-    font-size: smaller;
+.fa-quote-right-alt[data-v-4cebd208]:before,
+.fa-quote-right[data-v-4cebd208]:before {
+  font-size: smaller;
 }
 .fa-star-half:before {
-    content: "\f089";
-    color: khaki;
+  content: "\f089";
+  color: khaki;
 }
-.quotes{
+.quotes {
   width: 200px;
   height: 200px;
   padding: 5px;
-background-color: khaki;
+  background-color: khaki;
 }
 .fa-star:before {
-    content: "\f005";
-    color: khaki;
-    padding: 5px;
+  content: "\f005";
+  color: khaki;
+  padding: 5px;
 }
- .p-quotes{
-    font-size: 1.3rem;
-     padding: 5px;
- }
+.p-quotes {
+  font-size: 1.3rem;
+  padding: 5px;
+}
 </style>
