@@ -6,34 +6,34 @@
     <button id="sort" @click="sortByPrice()">
       Sort by price <i class="fa-solid fa-sort"></i>
     </button>
-   <select class="categories" v-model="category">
-        <option class="category" value="All" selected>All</option>
-        <option class="category" value="one wick">one wick</option>
-        <option class="category" value="twisty">twisty</option>
-        <option class="category" value="bubble shape">bubble shape</option>
-        <option class="category" value="bees wax">bees wax</option>
-      </select>
-        <div class="products">
-    <div class="filters pt-4">
-      <input
-        type="text"
-        class="search fw-bold"
-        id=""
-        placeholder="Search..."
-        v-model="search"
-      />
+    <select class="categories" v-model="category">
+      <option class="category" value="All" selected>All</option>
+      <option class="category" value="one wick">one wick</option>
+      <option class="category" value="twisty">twisty</option>
+      <option class="category" value="bubble shape">bubble shape</option>
+      <option class="category" value="bees wax">bees wax</option>
+    </select>
+    <div class="products">
+      <div class="filters pt-4">
+        <input
+          type="text"
+          class="search fw-bold"
+          id=""
+          placeholder="Search..."
+          v-model="search"
+        />
+      </div>
+      <div
+        v-if="filteredcategories"
+        class="products-container container-fluid pb-4 pt-3"
+      >
+        <products
+          v-for="product in filteredcategories"
+          :key="product.id"
+          :product="product"
+        />
+      </div>
     </div>
-    <div
-      v-if="filteredcategories"
-      class="products-container container-fluid pb-4 pt-3"
-    >
-      <products
-        v-for="product in filteredcategories"
-        :key="product.id"
-        :product="product"
-      />
-    </div>
-  </div>
     <div class="row p-5">
       <div
         v-for="product in products"
@@ -73,6 +73,9 @@
         </div>
       </div>
     </div>
+    <a id="arrowhref" href="#products"
+      ><i id="arrowup" class="fa-solid fa-arrow-up-long"></i
+    ></a>
   </section>
 </template>
 <script>
@@ -82,11 +85,11 @@ export default {
     this.$store.dispatch("getproducts");
   },
   data() {
-  return {
-    search: "",
-    category: "All",
-  };
-},
+    return {
+      search: "",
+      category: "All",
+    };
+  },
   computed: {
     products() {
       console.log(this.$store.state.products);
@@ -142,6 +145,13 @@ export default {
   align-items: center;
   justify-content: center;
   /* margin: 10%; */
+}
+#arrowup {
+  display: flex;
+  justify-content: end;
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 2rem;
 }
 .box-wrap:hover .card {
   filter: blur(3px);
@@ -235,14 +245,14 @@ hr {
 
 /* Transparent Overlay */
 .loading:before {
-  content: '';
+  content: "";
   display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* :not(:required) hides these rules from IE9 and below */
@@ -256,7 +266,7 @@ hr {
 }
 
 .loading:not(:required):after {
-  content: '';
+  content: "";
   display: block;
   font-size: 10px;
   width: 1em;
@@ -268,8 +278,16 @@ hr {
   -o-animation: spinner 1500ms infinite linear;
   animation: spinner 1500ms infinite linear;
   border-radius: 0.5em;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
 }
 
 /* Animation */

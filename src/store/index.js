@@ -10,7 +10,7 @@ export default createStore({
     cart: [],
     product: null,
     products: null,
-    user: null,
+    users: null,
     asc: true,
   },
   // Mutations are used to update state
@@ -29,6 +29,9 @@ export default createStore({
     },
     setUser: (state, user) => {
       state.user = user;
+    },
+    setUsers: (state, users) => {
+      state.users = users;
     },
     removeFromCart: (state, cart) => {
       state.cart = cart;
@@ -134,8 +137,16 @@ export default createStore({
         .then((products) => context.commit("setproducts", products)); //sends the changes to the array
       // console.log(products);
     },
-    getUser: async (context) => {
+    // USERS
+    // SHOW ALL USERS
+    getUsers: async (context) => {
       fetch("https://the-aromary.herokuapp.com/users")
+        .then((res) => res.json())
+        .then((data) => context.commit("setUsers", data))
+        .catch((err) => console.log(err.message));
+    },
+    getUser: async (context, id) => {
+      fetch("https://the-aromary.herokuapp.com/users"+ id)
         .then((res) => res.json())
         .then((user) => context.commit("setUser", user));
     },
@@ -156,7 +167,7 @@ export default createStore({
         .then((response) => response.json())
         .then((products) => {
           console.log(products);
-          // context.dispatch("getproducts", product);
+          context.dispatch("getproducts", product);
         });
     },
     editproduct: async (context, product) => {

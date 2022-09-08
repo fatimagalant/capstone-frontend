@@ -4,44 +4,53 @@
       <div id="item-container" v-if="product">
         <div v-for="product in product" :key="product.product_id">
           <div class="card">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="container">
-                <img
-                  class="img-fluid candle-image"
-                  v-bind:src="product.image"
-                  alt=""
-                />
+            <div class="row">
+              <div class="col-md-6">
+                <div class="container">
+                  <!-- <button onclick="history.back()"> -->
+                  <i
+                    id="back-btn"
+                    onclick="history.back()"
+                    class="fa-solid fa-arrow-left-long"
+                  ></i>
+                  <!-- </button> -->
+                  <img
+                    class="img-fluid candle-image"
+                    v-bind:src="product.image"
+                    alt=""
+                  />
+                </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="product-info">
-                <h1 class="text-black product-name">
-                  {{ product.name }}
-                </h1>
-                <hr />
-                <p class="text-muted">description</p>
-                <hr />
-                <p id="image-description" class="text-muted">
-                  {{ product.descriptions }}
-                </p>
-                <hr />
-                <h4 class="my-1 text-black">Category:{{ product.category }}</h4>
-                <h5 class="my-1 text-black">R {{ product.price }}</h5>
-                <p class="my-1 text-muted">qty: {{ product.stock }}</p>
-                <hr />
-                <button class="btn" @click="addToCart">
-                  <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-              </div>
+              <div class="col-md-6">
+                <div class="product-info">
+                  <h1 class="text-black product-name">
+                    {{ product.name }}
+                  </h1>
+                  <hr />
+                  <p class="text-muted">description</p>
+                  <hr />
+                  <p id="image-description" class="text-muted">
+                    {{ product.descriptions }}
+                  </p>
+                  <hr />
+                  <h4 class="my-1 text-black">
+                    Category:{{ product.category }}
+                  </h4>
+                  <h5 class="my-1 text-black">R {{ product.price }}</h5>
+                  <p class="my-1 text-muted">qty: {{ product.stock }}</p>
+                  <hr />
+                  <button class="btn" @click="addToCart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </div>
 
-              <!-- </div> -->
+                <!-- </div> -->
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
-  <div v-else class="loading">Loading&#8230;</div>
+      <div v-else class="loading">Loading&#8230;</div>
     </div>
   </section>
 </template>
@@ -57,7 +66,7 @@ export default {
   computed: {
     item() {
       return this.$store.state.item;
-    }
+    },
   },
   mounted() {
     fetch("https://the-aromary.herokuapp.com/products/" + this.$route.params.id)
@@ -87,6 +96,9 @@ export default {
 }
 h1 {
   font-family: "Aboreto", cursive;
+}
+#back-btn {
+ font-size: 25px;
 }
 .container {
   width: 600px;
@@ -128,7 +140,9 @@ h1 {
 hr {
   color: black;
 }
-.card{
+i {
+}
+.card {
   border: 1px black;
 }
 .product-info {
@@ -162,14 +176,14 @@ hr {
 
 /* Transparent Overlay */
 .loading:before {
-  content: '';
+  content: "";
   display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* :not(:required) hides these rules from IE9 and below */
@@ -183,7 +197,7 @@ hr {
 }
 
 .loading:not(:required):after {
-  content: '';
+  content: "";
   display: block;
   font-size: 10px;
   width: 1em;
@@ -195,8 +209,16 @@ hr {
   -o-animation: spinner 1500ms infinite linear;
   animation: spinner 1500ms infinite linear;
   border-radius: 0.5em;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
 }
 
 /* Animation */

@@ -36,12 +36,7 @@
           </div>
           <div class="modal-body">
             <form @submit.prevent="createproduct" id="modal-form" class="p-2">
-              <input
-                type="text"
-                id="title-add"
-                placeholder="Sku"
-                v-model="sku"
-              />
+              <input type="text" id="sku-add" placeholder="Sku" v-model="sku" />
               <input
                 type="text"
                 id="title-add"
@@ -49,46 +44,52 @@
                 v-model="name"
               />
               <input
-                type="text"
-                id="address-add"
-                placeholder="Candle Name"
-                v-model="category"
+                type="number"
+                id="price-add"
+                placeholder="Price"
+                v-model="price"
               />
+              <input
+                type="number"
+                id="weight-add"
+                placeholder="Weight"
+                v-model="weight"
+              />
+              <textarea
+                name="description"
+                type="text"
+                id="description-add"
+                cols="57"
+                rows="10"
+                placeholder="Description of your Candle"
+                v-model="descriptions"
+              ></textarea>
               <input
                 type="url"
                 placeholder="https://picsum.photos/300/400"
                 id="imageURL-add"
                 v-model="image"
               />
-              <div>
-                <input
-                  type="number"
-                  id="price-add"
-                  placeholder="Price"
-                  v-model="price"
-                />
-                <input
-                  type="number"
-                  id="weight-add"
-                  placeholder="Weight"
-                  v-model="weight"
-                />
-              </div>
+              <input
+                type="text"
+                id="category-add"
+                placeholder="Category"
+                v-model="category"
+              />
+              <div></div>
 
+              <input
+                v-model="create_date"
+                class="form form-sm"
+                aria-label=".form-sm example"
+                id="date-add"
+              />
               <input
                 v-model="stock"
                 class="form form-sm"
                 aria-label=".form-sm example"
                 id="quantity-add"
               />
-              <textarea
-                name="description"
-                id="description"
-                cols="57"
-                rows="10"
-                placeholder="Description of your Candle"
-                v-model="descriptions"
-              ></textarea>
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -96,11 +97,7 @@
               >
                 Cancel
               </button>
-              <button
-                type="btn"
-                class="btn btn-outline-dark"
-                @click="createproduct"
-              >
+              <button type="btn" class="btn btn-outline-dark">
                 Create Candle
               </button>
             </form>
@@ -129,10 +126,7 @@
           <td>{{ product.category }}</td>
           <td>{{ product.description }}</td>
           <td>
-            <img
-              v-bind:src="product.image"
-              class="product.img"
-            />
+            <img v-bind:src="product.image" class="product.img" />
           </td>
           <td>{{ product.price }}</td>
           <td>{{ product.stock }}</td>
@@ -181,13 +175,8 @@
           <td>{{ user.phone }}</td>
           <td>{{ user.userRole }}</td>
           <td>
-            <button type="btn">
-              <i
-                title="Edit"
-                class="bi bi-pencil-square"
-                id="edit"
-                @click="toggleModal"
-              ></i>
+            <button type="btn" @click="editproduct">
+              <i title="Edit" class="fa-regular fa-pen-to-square" id="edit"></i>
             </button>
             <button type="btn" @click="deleteuser">
               <i class="fa-solid fa-trash-can"></i>
@@ -200,39 +189,44 @@
 </template>
 <script>
 export default {
+  mounted() {
+     this.$store.dispatch("getproducts");
+    this.$store.dispatch("getUsers");
+  },
   computed: {
     products() {
       return this.$store.state.products;
     },
     users() {
       return this.$store.state.users;
-    }
+    },
   },
   data() {
     return {
       sku: "",
       name: "",
-      category: "",
-      description: "",
-      image: "",
       price: "",
       weight: "",
+      description: "",
+      image: "",
+      category: "",
+      create_date: "",
       stock: "",
-    }
+    };
   },
   methods: {
     createproduct() {
       return this.$store.dispatch("createproduct", {
         sku: this.sku,
         name: this.name,
-        category: this.category,
-        description: this.description,
-        image: this.image,
         price: this.price,
         weight: this.weight,
+        description: this.description,
+        image: this.image,
+        category: this.category,
+        create_date: this.create_date,
         stock: this.stock,
       });
-      console.log("products")
     },
     product() {
       return this.$store.state.product;
@@ -241,18 +235,13 @@ export default {
       return this.$store.state.user;
     },
     editproduct(id) {
-      return this.$store.dispatch("editproduct", id);
+      return this.$store.dispatch("getproducts", id);
     },
     deleteproduct(id) {
-      return this.$store.dispatch("deleteproduct", id);
+      return this.$store.dispatch("getproducts", id);
     },
   },
-  mounted() {
-    return this.$store.dispatch("getproducts");
-    return this.$store.dispatch("getUser");
-  },
-
-}
+};
 </script>
 <style scoped>
 #admin {
@@ -265,7 +254,7 @@ export default {
   padding-bottom: 2rem;
   border: 1px 1px 1px 1px white;
 }
-img{
+img {
   aspect-ratio: 1;
   object-fit: cover;
   width: 13rem;

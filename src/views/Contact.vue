@@ -1,97 +1,54 @@
 <template>
   <section id="contact">
-    <h3 class="header mt-5">Contact Us</h3>
-    <div class="container">
-      <div class="wrapper">
-        <!-- COMPANY INFORMATION -->
-        <div class="company-info">
-          <h3>The Aromary</h3>
-
-          <ul>
-            <li>
-              <i class="fa-solid fa-location-arrow"></i> Cape Town, South Africa
-            </li>
-            <li><i class="fa fa-phone"></i> (+27) 66-209-1181</li>
-            <li><i class="fa fa-envelope"></i> thearomary@gmail.com</li>
-          </ul>
-          <img
-            id="img-contact"
-            class="pt-5"
-            src="https://i.postimg.cc/hvy6VRQX/mathilde-langevin-ilsi-Tpd-YTxw-unsplash-2.jpg"
-            alt="Logo"
-            style="width: 300px; height: 300px"
-          />
+    <div class="container p-5">
+      <div class="form-container">
+        <div class="left-container">
+          <div class="left-inner-container">
+            <h2>Let's Chat</h2>
+            <p>
+              Whether you have a question, want to start a project or simply
+              want to connect.
+            </p>
+            <br />
+            <p>Feel free to send me a message in the contact form</p>
+          </div>
         </div>
-        <!-- End .company-info -->
-
-        <!-- CONTACT FORM -->
-        <div class="contact">
-          <form action="https://formspree.io/f/mvoygyag" method="POST">
-            <p>
-              <label>First Name</label>
-              <input
-                type="text"
-                name="first name"
-                id="fname"
-                placeholder="First Name"
-                required
-              />
-            </p>
-
-            <p>
-              <label>Last Name</label>
-              <input
-                type="text"
-                name="Last name"
-                id="lname"
-                placeholder="Last Name"
-              />
-            </p>
-
-            <p>
-              <label>E-mail Address</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email"
-                required
-              />
-            </p>
-
-            <p>
-              <label>Phone Number</label>
-              <input type="text" name="phone" id="phone" placeholder="Phone" />
-            </p>
-
-            <p class="full">
-              <label>Message</label>
+        <div class="right-container">
+          <div class="right-inner-container">
+            <form action="https://formspree.io/f/mvoygyag" method="POST">
+              <h2 class="lg-view">Contact</h2>
+              <h2 class="sm-view">Let's Chat</h2>
+              <p>* Required</p>
+              <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"
+                  ><i class="fab fa-google-plus-g"></i
+                ></a>
+                <a href="#" class="social"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+              <input type="text" name="name" placeholder="Name *" />
+              <input type="email" name="email" placeholder="Email *" />
+              <input type="phone" name="phone number" placeholder="Phone" />
               <textarea
+                rows="4"
                 name="message"
-                rows="5"
-                id="message"
                 placeholder="Message"
               ></textarea>
-            </p>
-
-            <p class="full">
-              <button type="submit">Submit</button>
-            </p>
-          </form>
-          <!-- End #contact-form -->
+              <button>Submit</button>
+            </form>
+          </div>
         </div>
-        <!-- End .contact -->
       </div>
-      <!-- End .wrapper -->
     </div>
-    <!-- End .container -->
   </section>
 </template>
 <script></script>
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,300&family=Poppins:wght@300&family=Prata&family=Raleway:wght@300&family=Work+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
 #contact {
-  background-color: rgb(255, 255, 255);
+  background-image: url("https://i.postimg.cc/ZYMJT2bg/pawel-czerwinski-Wpi-JTik1m-KU-unsplash.jpg");
   overflow-x: hidden;
   background-size: cover;
   background-position: center;
@@ -103,168 +60,152 @@
   margin-top: 50px;
 }
 
-@media screen and (max-width: 500px) {
-  #contact {
-    margin-top: 5px;
-  }
-}
-.header {
-  font-size: 5rem;
-  padding-top: 4rem;
-  font-weight: 700;
-}
-.container[data-v-df212a54] {
-  max-width: 1170px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1em;
-  padding-top: 2rem;
-}
-#img-contact {
-  object-fit: contain;
-  aspect-ratio: 1;
-}
-#contact-img {
-  width: 600px;
-  object-fit: contain;
-  aspect-ratio: 1;
-}
-@import url("https://fonts.googleapis.com/css?family=Yantramanav:100,300");
-/* ------------- */
-/* GLOBAL STYLES */
-/* ------------- */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
 * {
   box-sizing: border-box;
-}
-body {
-  background: #ffffff;
-  color: #000000;
-  line-height: 1.6;
-  font-family: "Aboreto", cursive;
-  padding: 1em;
-}
-.container {
-  max-width: 1170px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1em;
-}
-ul {
-  list-style: none;
-  padding: 0;
-}
-.wrapper {
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.7);
-}
-.wrapper > * {
-  padding: 1em;
-}
-/* ------------------- */
-/* COMPANY INFORMATION */
-/* ------------------- */
-.company-info {
-  /* background-image: linear-gradient(to right, grey, rgb(255, 255, 255)); */
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  font-family: "Poppins", sans-serif;
-}
-.company-info h3,
-.company-info ul {
-  text-align: center;
-  margin: 0 0 1rem 0;
-}
-/* ------- */
-/* CONTACT */
-/* ------- */
-.contact {
-  background: #ffffff;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-/* ---- */
-/* FORM */
-/* ---- */
-.contact form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
-.contact form label {
-  display: block;
-}
-.contact form p {
   margin: 0;
 }
-.contact form .full {
-  grid-column: 1 / 3;
+
+body {
+  background: linear-gradient(90deg, #be8cef 0%, rgba(61, 46, 232, 0.83) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  height: 100vh;
+  margin: -20px 0 50px;
 }
-.contact form button,
-.contact form input,
-.contact form textarea {
+
+.container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 580px;
+  min-width: 370px;
+  margin-top: 200px;
+  margin-left: 540px;
+}
+@media screen and (max-width: 700px) {
+  .container {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 580px;
+    min-width: 370px;
+    /* margin-top: 200px;
+    margin-left: 540px; */
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.form-container {
+  display: flex;
+}
+
+.left-container {
+  flex: 1;
+  height: 480px;
+  background-color: khaki;
+}
+.right-container {
+  display: flex;
+  flex: 1;
+  height: 460px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-container {
+  display: flex;
+  flex: 1;
+  height: 480px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.left-container p {
+  font-size: 0.9rem;
+}
+
+.right-inner-container {
+  width: 70%;
+  height: 80%;
+  text-align: center;
+}
+
+.left-inner-container {
+  height: 50%;
+  width: 80%;
+  text-align: center;
+  line-height: 22px;
+}
+
+input,
+textarea {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
   width: 100%;
-  padding: 1em;
-  background-color: #1a2226;
-  color: rgb(255, 255, 255);
-  border: solid 1px #ffffff;
-  border-radius: 4px;
+  font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
 }
-.contact form textarea {
-  resize: none;
+
+input:focus,
+textarea:focus {
+  outline: 1px solid khaki;
+  font-family: "Poppins", sans-serif;
 }
-.contact form button {
-  background: khaki;
-  border: 0;
-  color: #000000;
-  text-transform: uppercase;
-  font-size: 14px;
+
+button {
+  border-radius: 20px;
+  border: 1px solid khaki;
+  background-color: khaki;
+  color: #ffffff;
+  font-size: 12px;
   font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
 }
-.contact form button:hover,
-.contact form button:focus {
-  background: khaki;
-  color: #000000;
-  outline: 0;
-  transition: background-color 2s ease-out;
+
+button:hover {
+  opacity: 0.7;
 }
-/* ------------- */
-/* MEDIA QUERIES */
-/* ------------- */
-@media only screen and (min-width: 700px) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+@media only screen and (max-width: 600px) {
+  .left-container {
+    display: none;
   }
-  .wrapper > * {
-    padding: 2em;
-  }
-  .company-info {
-    border-radius: 4px 0 0 4px;
-  }
-  .contact {
-    border-radius: 0 4px 4px 0;
-  }
-  .company-info h3,
-  .company-info ul,
-  .brand {
-    text-align: left;
+  .lg-view {
+    display: none;
   }
 }
-@media screen and (max-width: 1254px) {
-  #contact-img {
-    width: 400px;
+
+@media only screen and (min-width: 600px) {
+  .sm-view {
+    display: none;
   }
 }
-@media screen and (max-width: 1352px) {
-  iframe {
-    width: 400px;
-    height: 400px;
-  }
-}
-@media screen and (max-width: 476px) {
-  iframe {
-    width: 300px;
-    height: 300px;
-  }
+
+form p {
+  text-align: left;
 }
 </style>
