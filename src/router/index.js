@@ -51,10 +51,16 @@ const routes = [
     name: 'admin',
     component: () => import('../views/Admin.vue')
   },
+  // {
+  //   path: '/account',
+  //   name: 'account',
+  //   component: () => import('../views/Account.vue')
+  // },
   {
-    path: '/account',
-    name: 'account',
-    component: () => import('../views/Account.vue')
+    path: "/profile/:id",
+    name: "profile",
+    component: () => import("../views/Account.vue"),
+    props: true,
   },
 
 ]

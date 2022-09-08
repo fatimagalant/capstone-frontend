@@ -1,279 +1,120 @@
 <template>
-  <section id="productinfo">
-    <i
-      id="back-btn"
-      onclick="history.back()"
-      class="fa-solid fa-arrow-left-long"
-    ></i>
-    <div id="info-div">
-      <div id="item-container" v-if="user">
-        <!-- <div v-for="user in user" :key="user.user_id"> -->
-        <div class="card">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="container">
-                <!-- <button onclick="history.back()"> -->
-                <!-- </button> -->
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="product-info">
-                <h1 class="text-black product-name">
-                  {{ user.full_name }}
-                </h1>
-                <hr />
-                <hr />
-                <p id="image-description" class="text-muted">
-                  {{ user.email }}
-                </p>
-                <hr />
-                <h4 class="my-1 text-black">{{ user.country }}</h4>
-                <h5 class="my-1 text-black">{{ user.billing_address }}</h5>
-                <p class="my-1 text-muted">
-                  qty: {{ user.default_shipping_address }}
-                </p>
-                <hr />
-                <!-- <button class="btn" @click="addToCart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                  </button> -->
-              </div>
-
-              <!-- </div> -->
-            </div>
-          </div>
+  <div class="container">
+    <div class="profile-cont">
+      <div class="row">
+        <img id="profileImg" class="mx-auto m-3" :src="user.user.img" alt="" />
+        <div class="profile-details">
+          <editModal :user="user" />
+          <i
+            class="fa-solid fa-trash"
+            @click="deleteUser(user.user.user_id)"
+          ></i>
+          <h1>{{ user.user.user_name }}</h1>
+          <p>{{ user.user.email }}</p>
+          <p>{{ user.user.bio }}</p>
+        </div>
+        <div class="btn-cont d-flex">
+          <button id="profile-btn" class="mx-auto m-4" @click="logout()">
+            Logout
+          </button>
+          <button
+            v-if="user.user.user_type === 'admin'"
+            id="profile-btn"
+            class="mx-auto m-4"
+          >
+            <RouterLink id="admin-link" to="/admin" v-on:click="display">
+              Admin
+            </RouterLink>
+          </button>
         </div>
       </div>
     </div>
-    <!-- <div v-else class="loading">Loading&#8230;</div>
-    </div> -->
-  </section>
+  </div>
 </template>
-
 <script>
 export default {
   props: ["id"],
-  // data() {
-  //   return {
-  //     user: null,
-  //   };
-  // },
   computed: {
     user() {
       return this.$store.state.user;
     },
   },
-  // mounted() {
-  //   fetch("https://the-aromary.herokuapp.com/users/" + this.$route.params.id)
-  //     .then((res) => res.json())
-  //     .then((data) => (this.product = data));
-  // },
+  mounted() {
+    // console.log(this.$route.params.id);
+    // this.$store.dispatch("getPost", this.$route.params.id);
+  },
+  methods: {
+    logout() {
+      this.$store.commit("logout");
+      this.$router.push("/login");
+    },
+    deleteUser(id) {
+      this.$store.dispatch("deleteUser", id);
+      // this.$router.push("/login");
+    },
+  },
 };
 </script>
-
 <style scoped>
-#productinfo {
+.profile-details {
+  color: var(--light);
+  text-shadow: 2px 2px 2px var(--dark);
+}
+.profile-cont {
+  background: linear-gradient(90deg, var(--green), var(--light-green));
+  box-shadow: 0px 0px 24px var(--green);
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  margin: 3rem;
+}
+a {
+  text-decoration: none;
+  color: var(--green);
+}
+a:hover {
+  text-decoration: none;
+  color: var(--dark);
+}
+#profile {
+  background: linear-gradient(90deg, var(--green), var(--light-green));
+  position: relative;
+  height: 600px;
+  width: 100%;
+  box-shadow: 0px 0px 24px var(--green);
+}
+#profile {
   min-height: 100vh;
-  background-color: wheat;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: contain;
-  overflow-x: hidden;
-  z-index: 101;
-  overflow-x: hidden;
 }
-h1 {
-  font-family: "Aboreto", cursive;
+#profileImg {
+  width: 30%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  aspect-ratio: 1;
+  border-radius: 60%;
 }
-#back-btn {
-  font-size: 25px;
+#profile-btn {
+  background: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #D4D3E8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 25%;
+  color: var(--light-green);
+  box-shadow: 0px 2px 2px var(--green);
+  cursor: pointer;
+  transition: 0.2s;
 }
 .container {
-  width: 600px;
-  height: 500px;
-  margin-top: 200px;
-  margin-bottom: 160px;
-  box-shadow: 2px 2px 4px solid black;
-  width: fit-content;
-  height: fit-content;
-}
-@media screen and (max-width: 600px) {
-  .container {
-    /* width: 600px;
-    height: 500px; */
-    /* margin-top: 100px; */
-    /* margin-bottom: 160px; */
-    box-shadow: 2px 2px 4px solid black;
-    width: fit-content;
-    height: fit-content;
-  }
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
-  }
-}
-#image-description {
-  font-family: "Aboreto", cursive;
-  letter-spacing: 2;
-  word-spacing: 2;
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
-}
-hr {
-  color: black;
-}
-i {
-}
-.card {
-  border: 1px black;
-}
-.product-info {
   display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
   align-items: center;
-  margin-top: 220px;
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
-}
-.img-fluid {
-  object-fit: contain;
-  aspect-ratio: 1;
-  height: 700px;
-}
-/* Absolute Center Spinner */
-.loading {
-  position: fixed;
-  z-index: 999;
-  height: 2em;
-  width: 2em;
-  overflow: visible;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-/* Transparent Overlay */
-.loading:before {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* :not(:required) hides these rules from IE9 and below */
-.loading:not(:required) {
-  /* hide "loading..." text */
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-
-.loading:not(:required):after {
-  content: "";
-  display: block;
-  font-size: 10px;
-  width: 1em;
-  height: 1em;
-  margin-top: -0.5em;
-  -webkit-animation: spinner 1500ms infinite linear;
-  -moz-animation: spinner 1500ms infinite linear;
-  -ms-animation: spinner 1500ms infinite linear;
-  -o-animation: spinner 1500ms infinite linear;
-  animation: spinner 1500ms infinite linear;
-  border-radius: 0.5em;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
-    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
-    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0,
-    rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
-    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
-    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
-    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0,
-    rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
-    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-}
-
-/* Animation */
-
-@-webkit-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: 2rem;
 }
 </style>
