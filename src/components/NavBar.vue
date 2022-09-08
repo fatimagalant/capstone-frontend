@@ -22,9 +22,7 @@
           <router-link to="/account"
             ><i class="fa-regular fa-user"></i>
           </router-link>
-          <button @click="logout()">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </button>
+          <i @click="logout()" class="fa-solid fa-arrow-right-from-bracket"></i>
         </nav>
       </ul>
       <h1 class="logo">
@@ -125,7 +123,7 @@ export default {
 .nav-links {
   padding-right: 295px;
 }
-i{
+i {
   margin-right: 15px;
 }
 @media (max-width: 768px) {

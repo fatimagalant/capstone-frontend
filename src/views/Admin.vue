@@ -190,7 +190,7 @@
 <script>
 export default {
   mounted() {
-     this.$store.dispatch("getproducts");
+    this.$store.dispatch("getproducts");
     this.$store.dispatch("getUsers");
   },
   computed: {
@@ -244,6 +244,7 @@ export default {
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
 #admin {
   background-color: #0a0908;
   color: white;
@@ -259,5 +260,11 @@ img {
   object-fit: cover;
   width: 13rem;
   height: 10rem;
+}
+h1 {
+  font-family: "Aboreto", cursive;
+}
+td {
+  font-family: "Poppins", sans-serif;
 }
 </style>
