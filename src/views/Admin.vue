@@ -101,7 +101,7 @@
               >
                 Cancel
               </button>
-              <button type="btn" class="btn btn-outline-dark">
+              <button type="submit" class="btn btn-outline-dark">
                 Create Candle
               </button>
             </form>
@@ -141,15 +141,15 @@
                 ><i class="fa-solid fa-pencil"></i
               ></a>
             </button>
-          </td>
-
-          <td data-label="Delete">
-            <a
-              href="/"
-              class="btn"
-              @click="this.$store.dispatch('deleteFlight', product.product_id)"
-            >
-            </a>
+            <button>
+              <a
+                class="btn"
+                @click="
+                  this.$store.dispatch('deleteProduct', product.product_id)
+                "
+                ><i class="fa-solid fa-trash"></i>
+              </a>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -182,11 +182,19 @@
           <td>{{ user.phone }}</td>
           <td>{{ user.userRole }}</td>
           <td>
-            <button type="btn" @click="editproduct">
-              <i title="Edit" class="fa-regular fa-pen-to-square" id="edit"></i>
+            <button type="btn">
+              <a
+                class="btn"
+                @click="this.$store.dispatch('editUser', user.user_id)"
+                ><i class="fa-solid fa-pencil"></i
+              ></a>
             </button>
-            <button type="btn" @click="deleteuser">
-              <i class="fa-solid fa-trash-can"></i>
+            <button type="btn">
+              <a
+                class="btn"
+                @click="this.$store.dispatch('deleteUser', user.user_id)"
+                ><i class="fa-solid fa-trash"></i
+              ></a>
             </button>
           </td>
         </tr>
@@ -241,12 +249,12 @@ export default {
     user() {
       return this.$store.state.user;
     },
-    editproduct(id) {
-      return this.$store.dispatch("getproducts", id);
-    },
-    deleteproduct(id) {
-      return this.$store.dispatch("getproducts", id);
-    },
+    // editproduct(id) {
+    //   return this.$store.dispatch("getproducts", id);
+    // },
+    // deleteproduct(id) {
+    //   return this.$store.dispatch("getproducts", id);
+    // },
   },
 };
 </script>

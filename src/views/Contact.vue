@@ -124,21 +124,6 @@ a:hover {
   margin-top: 200px;
   margin-left: 540px;
 }
-@media screen and (max-width: 700px) {
-  .container {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    position: relative;
-    overflow: hidden;
-    width: 768px;
-    max-width: 100%;
-    min-height: 580px;
-    min-width: 370px;
-    /* margin-top: 200px;
-    margin-left: 540px; */
-  }
-}
 
 h2 {
   font-size: 2rem;
@@ -239,5 +224,20 @@ button:hover {
 
 form p {
   text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  .container[data-v-df212a54] {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    /* max-width: 100%;
+    min-height: 580px;
+    min-width: 370px;
+    margin-top: 100px; */
+  }
 }
 </style>

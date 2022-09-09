@@ -4,21 +4,23 @@
       <div class="row">
         <div class="profile-details">
           <editModal :user="user" />
-          <i class="fa-solid fa-trash" @click="deleteUser"></i>
+          <!-- <i class="fa-solid fa-trash" @click="deleteUser"></i> -->
           <h1>{{ user.full_name }}</h1>
           <p>{{ user.email }}</p>
           <p>{{ user.billing_address }}</p>
+          <p>{{ user.default_shipping_address }}</p>
+          <p>{{ user.country }}</p>
         </div>
         <div class="btn-cont d-flex">
           <button id="profile-btn" class="mx-auto m-4" @click="logout">
             Logout
           </button>
           <button
-            v-if="user.user.userRole === 'admin'"
+            v-if="user.userRole === 'admin'"
             id="profile-btn"
             class="mx-auto m-4"
           >
-            <routerLink id="admin-link" to="/admin" v-on:click="display">
+            <routerLink id="admin-link" to="/admin">
               Admin
             </routerLink>
           </button>

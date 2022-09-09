@@ -185,16 +185,12 @@ export default createStore({
           context.dispatch("getproducts", product);
         });
     },
-    deleteproduct: async (context, id) => {
-      await fetch("https://the-aromary.herokuapp.com/products/" + id, {
-        // await fetch("http://localhost:3000/cars/" + id, {
+    deleteProduct: async (context, id) => {
+      fetch("https://the-aromary.herokuapp.com/products/" + id, {
         method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log(data);
-          context.dispatch("getproducts");
-        });
+      }).then(() => {
+        context.dispatch("getproducts");
+      });
     },
     editproduct: async (context, product) => {
       console.log(product);
@@ -223,7 +219,19 @@ export default createStore({
         context.dispatch("getUsers");
       });
     },
-
+    editUser: async (context, user) => {
+      fetch("https://the-aromary.herokuapp.com/users/" + id, {
+        method: "PUT",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => {
+          context.dispatch("getUser", user);
+        });
+    },
     addToCart: async (context, id) => {
       this.state.cart.product.push(id);
       context.dispatch("updateCart", this.state.cart);
