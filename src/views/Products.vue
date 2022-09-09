@@ -12,11 +12,11 @@
       Sort by price <i class="fa-solid fa-sort"></i>
     </button>
     <select class="categories" v-model="category">
-      <option class="category" value="All" selected>All</option>
-      <option class="category" value="one wick">one wick</option>
-      <option class="category" value="twisty">twisty</option>
-      <option class="category" value="bubble shape">bubble shape</option>
-      <option class="category" value="bees wax">bees wax</option>
+      <option value="All" selected>All</option>
+      <option value="one wick">one wick</option>
+      <option value="twisty">twisty</option>
+      <option value="bubble shape">bubble shape</option>
+      <option value="bees wax">bees wax</option>
     </select>
     <div class="products">
       <div class="filters pt-4">
@@ -24,9 +24,10 @@
           type="text"
           class="search fw-bold"
           id=""
-          placeholder="Search..."
+          placeholder="Search by Category"
           v-model="search"
         />
+        <i class="fa-solid fa-magnifying-glass"></i>
       </div>
       <div
         v-if="filteredcategories"
@@ -170,6 +171,10 @@ export default {
     border-radius: 0 !important;
     box-shadow: 2px 2px 8px;
   }
+}
+i{
+  font-size: 20px;
+  padding-left: 5px;
 }
 .img-fluid {
   padding-top: 10px;

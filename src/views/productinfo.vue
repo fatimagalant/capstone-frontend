@@ -98,7 +98,7 @@ h1 {
   font-family: "Aboreto", cursive;
 }
 #back-btn {
- font-size: 25px;
+  font-size: 25px;
 }
 .container {
   width: 600px;
@@ -139,8 +139,6 @@ h1 {
 }
 hr {
   color: black;
-}
-i {
 }
 .card {
   border: 1px black;

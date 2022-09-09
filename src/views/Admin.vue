@@ -81,7 +81,6 @@
                 placeholder="Category"
                 v-model="category"
               />
-              <div></div>
 
               <input
                 v-model="create_date"
@@ -137,15 +136,20 @@
           <td>{{ product.stock }}</td>
           <!-- <td>{{ product.category }}</td> -->
           <td>
-            <button type="btn">
-              <i
-                title="Edit"
-                class="bi bi-pencil-square"
-                id="edit"
-                @click="toggleModal"
-              ></i>
+            <button class="btn">
+              <a @click="this.$store.dispatch('editproduct', product)"
+                ><i class="fa-solid fa-pencil"></i
+              ></a>
             </button>
-            <i @click="deleteproduct" class="fa-solid fa-trash-can"></i>
+          </td>
+
+          <td data-label="Delete">
+            <a
+              href="/"
+              class="btn"
+              @click="this.$store.dispatch('deleteFlight', product.product_id)"
+            >
+            </a>
           </td>
         </tr>
       </tbody>

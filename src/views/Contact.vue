@@ -16,6 +16,19 @@
             </p>
             <br />
             <p>Feel free to send me a message in the contact form</p>
+            <div class="contact">
+              <p class="text-muted">
+                <i class="fa-solid fa-globe"></i> : Cape Town, South Africa
+              </p>
+              <p class="text-muted">
+                <i class="fa-solid fa-at"></i>:
+                <a href="mailto:thearomarry@gmail.com">thearomarry@gmail.com</a>
+              </p>
+              <p class="text-muted">
+                <i class="fa-solid fa-phone"></i> :
+                <a href="tel:+27-66-1181">(+27) 66 209 1181</a>
+              </p>
+            </div>
           </div>
         </div>
         <div class="right-container">
@@ -83,7 +96,21 @@ body {
   height: 100vh;
   margin: -20px 0 50px;
 }
-
+.text-muted {
+  padding: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+a {
+  color: black;
+  text-decoration-line: none;
+}
+a:hover {
+  color: white;
+}
+.contact {
+  padding-top: 20px;
+}
 .container {
   background-color: white;
   border-radius: 5px;

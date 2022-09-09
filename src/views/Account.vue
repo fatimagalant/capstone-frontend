@@ -2,29 +2,25 @@
   <div class="container">
     <div class="profile-cont">
       <div class="row">
-        <img id="profileImg" class="mx-auto m-3" :src="user.user.img" alt="" />
         <div class="profile-details">
           <editModal :user="user" />
-          <i
-            class="fa-solid fa-trash"
-            @click="deleteUser(user.user.user_id)"
-          ></i>
-          <h1>{{ user.user.user_name }}</h1>
-          <p>{{ user.user.email }}</p>
-          <p>{{ user.user.bio }}</p>
+          <i class="fa-solid fa-trash" @click="deleteUser"></i>
+          <h1>{{ user.full_name }}</h1>
+          <p>{{ user.email }}</p>
+          <p>{{ user.billing_address }}</p>
         </div>
         <div class="btn-cont d-flex">
-          <button id="profile-btn" class="mx-auto m-4" @click="logout()">
+          <button id="profile-btn" class="mx-auto m-4" @click="logout">
             Logout
           </button>
           <button
-            v-if="user.user.user_type === 'admin'"
+            v-if="user.user.userRole === 'admin'"
             id="profile-btn"
             class="mx-auto m-4"
           >
-            <RouterLink id="admin-link" to="/admin" v-on:click="display">
+            <routerLink id="admin-link" to="/admin" v-on:click="display">
               Admin
-            </RouterLink>
+            </routerLink>
           </button>
         </div>
       </div>
@@ -56,6 +52,7 @@ export default {
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@200&display=swap");
 .profile-details {
   color: var(--light);
   text-shadow: 2px 2px 2px var(--dark);
@@ -67,6 +64,10 @@ export default {
   height: fit-content;
   width: 100%;
   margin: 3rem;
+}
+h1 {
+  font-family: "Aboreto", cursive;
+  font-weight: 500;
 }
 a {
   text-decoration: none;
@@ -99,7 +100,7 @@ a:hover {
   margin-top: 30px;
   padding: 16px 20px;
   border-radius: 26px;
-  border: 1px solid #D4D3E8;
+  border: 1px solid #d4d3e8;
   text-transform: uppercase;
   font-weight: 700;
   display: flex;
@@ -109,6 +110,10 @@ a:hover {
   box-shadow: 0px 2px 2px var(--green);
   cursor: pointer;
   transition: 0.2s;
+}
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 .container {
   display: flex;

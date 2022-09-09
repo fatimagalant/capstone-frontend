@@ -59,11 +59,11 @@ export default createStore({
     },
     logout: (state) => {
       (state.user = ""),
-        (state.token = ""),
+        (state.Token = ""),
         (state.users = ""),
         (state.product = ""),
         (state.products = "");
-         router.push("/login");
+      router.push("/login");
     },
   },
 
@@ -148,7 +148,7 @@ export default createStore({
         .catch((err) => console.log(err.message));
     },
     getUser: async (context, id) => {
-      fetch("https://the-aromary.herokuapp.com/users"+ id)
+      fetch("https://the-aromary.herokuapp.com/users" + id)
         .then((res) => res.json())
         .then((user) => context.commit("setUser", user));
     },
@@ -186,12 +186,44 @@ export default createStore({
         });
     },
     deleteproduct: async (context, id) => {
-      fetch("https://the-aromary.herokuapp.com/products/" + id, {
+      await fetch("https://the-aromary.herokuapp.com/products/" + id, {
+        // await fetch("http://localhost:3000/cars/" + id, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          context.dispatch("getproducts");
+        });
+    },
+    editproduct: async (context, product) => {
+      console.log(product);
+      await fetch(
+        "https://the-aromary.herokuapp.com/products/" + product.product_id,
+        {
+          method: "PUT",
+          body: JSON.stringify(product),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+    },
+    // deleteproduct: async (context, id) => {
+    //   fetch("https://the-aromary.herokuapp.com/products/" + id, {
+    //     method: "DELETE",
+    //   }).then(() => {
+    //     context.dispatch("getproducts");
+    //   });
+    // },
+    deleteUser: async (context, id) => {
+      fetch("https://the-aromary.herokuapp.com/users/" + id, {
         method: "DELETE",
       }).then(() => {
-        context.dispatch("getproducts");
+        context.dispatch("getUsers");
       });
     },
+
     addToCart: async (context, id) => {
       this.state.cart.product.push(id);
       context.dispatch("updateCart", this.state.cart);

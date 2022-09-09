@@ -15,15 +15,12 @@
           <router-link to="/contact">Contact </router-link>
           <router-link to="/login">Login </router-link>
           <router-link to="/register">Register </router-link>
-          <div>
-            <router-link to="/admin">Admin </router-link>
-          </div>
-          <div></div>
+          <router-link to="/admin">Admin </router-link>
           <router-link to="/cart"
             ><i class="fa-solid fa-cart-shopping"></i>
           </router-link>
           <div v-if="user">
-            <router-link to="/account"
+            <router-link to="/profile/:id"
               ><i class="fa-regular fa-user"></i>
             </router-link>
             <i class="fa-solid fa-arrow-right-from-bracket" @click="logout"></i>

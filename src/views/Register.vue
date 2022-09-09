@@ -229,7 +229,7 @@ input[type="text"] {
   outline: 0;
   margin-bottom: 20px;
   padding-left: 0px;
-  color: #ecf0f5;
+  color: #8f949b;
   font-family: "Poppins", sans-serif;
 }
 input[type="email"] {
